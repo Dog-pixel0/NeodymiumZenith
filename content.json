@@ -19,51 +19,48 @@
   ],
   "members": [
     {
-      "name": "Ava Patel",
+      "name": "Reyansh",
       "role": "Captain · Build lead",
-      "bio": "Runs the build schedule and keeps the pit organized."
+      "bio": "Runs the build schedule and keeps the pit organized.",
+      "img": null,
+      "imgType": null
     },
     {
-      "name": "Marcus Lee",
+      "name": "Ethan",
       "role": "Programming lead",
-      "bio": "Wrote our autonomous pathing and vision pipeline."
+      "bio": "Wrote our autonomous pathing and vision pipeline.",
+      "img": null,
+      "imgType": null
     },
     {
-      "name": "Priya Nair",
+      "name": "Abhiraj",
       "role": "CAD lead",
-      "bio": "Models every part in Onshape before a single cut is made."
+      "bio": "Models every part in Onshape before a single cut is made.",
+      "img": null,
+      "imgType": null
     },
     {
-      "name": "Diego Romero",
+      "name": "Carson",
       "role": "Drive team",
-      "bio": "Primary driver with 200+ hours of practice this season."
-    },
-    {
-      "name": "Hannah Kim",
-      "role": "Outreach lead",
-      "bio": "Organizes our workshops and FLL mentoring program."
-    },
-    {
-      "name": "Jonah Brooks",
-      "role": "Build · Electrical",
-      "bio": "Wiring, cable management and zero brown-outs."
+      "bio": "Primary driver with 200+ hours of practice this season.",
+      "img": null,
+      "imgType": null
     }
   ],
   "mentors": [
     {
-      "name": "Dr. Lena Ortiz",
-      "role": "Engineering mentor",
-      "bio": "Mechanical engineer; coaches design reviews and failure analysis."
+      "name": "Subodh",
+      "role": "Head Coach",
+      "bio": "Mechanical engineer; coaches design reviews and failure analysis.",
+      "img": null,
+      "imgType": null
     },
     {
-      "name": "Sam Chen",
-      "role": "Software mentor",
-      "bio": "Software engineer; helps with code reviews and control theory."
-    },
-    {
-      "name": "Rita Gomez",
-      "role": "Head coach",
-      "bio": "Handles logistics, travel and keeping us all on track."
+      "name": "Sridevi",
+      "role": "Lead Coach",
+      "bio": "Software engineer; helps with code reviews and control theory.",
+      "img": null,
+      "imgType": null
     }
   ],
   "impact": [
