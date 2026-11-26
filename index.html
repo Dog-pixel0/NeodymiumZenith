@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neodymium Zenith FTC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: proud, energetic student team — a competition pit banner, not a corporate site
+   IDEA: a neodymium magnet — field lines arc around the robot, everything is "attracted" on hover
+   PICTURE: this season's robot photo (or the drawn robot until one is uploaded) wrapped in purple field lines
+   COLOUR and TYPE: pure black, fluorescent purple #c04bff lead, hot cyan #2ef2ff hover accent; Chakra Petch + Inter
+   LAYOUT: sticky nav, hero, bands for team, outreach, design, media, guides; owner-only edit bar pinned at the bottom */
+:root{color-scheme:dark;--bg:#000;--panel:#0c0612;--line:#2a1438;--ink:#f3eaff;--dim:#b7a3cc;--pur:#c04bff;--pur2:#8a2be2;--hot:#2ef2ff}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+body.owner{padding-bottom:120px}
+h1,h2,h3{font-family:"Chakra Petch",sans-serif;line-height:1.05;text-wrap:balance;margin:0 0 .4em}
+h2{font-size:clamp(32px,4.5vw,48px);color:var(--pur);text-shadow:0 0 18px #c04bff88}
+h3{font-size:22px}
+p{margin:0 0 1em;max-width:68ch}
+a{color:var(--pur)}
+.band{padding:clamp(40px,6vw,88px) max(5vw,16px);border-top:1px solid var(--line)}
+.wrap{max-width:1240px;margin:0 auto}
+.lede{color:var(--dim);font-size:17px}
+nav{position:sticky;top:0;z-index:20;background:#000d;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;padding:10px max(5vw,16px)}
+.logo{font:700 20px "Chakra Petch",sans-serif;color:var(--ink);text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px;min-height:44px}
+.logo b{color:var(--pur)}
+nav .links{display:flex;flex-wrap:wrap;gap:4px}
+nav .links a{color:var(--dim);text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600;font-size:15px;transition:.2s}
+.hl{transition:color .2s,background .2s,box-shadow .25s,border-color .25s,transform .25s}
+.hl:hover,.hl:focus-visible,nav .links a:hover,nav .links a:focus-visible{color:var(--hot);border-color:var(--hot);box-shadow:0 0 0 1px var(--hot),0 0 24px #2ef2ff66,inset 0 0 24px #2ef2ff14}
+nav .links a:hover{background:#2ef2ff12}
+.card.hl:hover{transform:translateY(-4px)}
+.card.hl:hover h3{color:var(--hot)}
+:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:center;padding:clamp(32px,5vw,72px) max(5vw,16px);max-width:1340px;margin:0 auto;min-height:min(86vh,760px)}
+.hero h1{font-size:clamp(48px,8vw,96px)}
+.hero h1 span{display:block;color:var(--pur);text-shadow:0 0 28px #c04bffaa,0 0 4px #c04bff}
+.tag{color:var(--dim);font-size:18px;margin-bottom:24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border-radius:10px;border:1px solid var(--pur);color:var(--ink);background:#c04bff1f;text-decoration:none;font:600 16px Inter,sans-serif;cursor:pointer}
+.btn.solid{background:var(--pur);color:#0b0010}
+.btn.solid:hover{background:var(--hot);color:#001214}
+.btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+.btn.sm{min-height:36px;padding:6px 14px;font-size:14px}
+.fig{position:relative;aspect-ratio:1/1;max-height:640px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.fig .photo-wrap{position:absolute;inset:9%;border-radius:24px;overflow:hidden;border:2px solid var(--pur);box-shadow:0 0 50px #c04bff66;background:#07030b}
+.fig .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
+.fig .ph{position:absolute;inset:9%;border:2px dashed var(--hot);border-radius:24px;display:grid;place-content:center;gap:10px;text-align:center;background:#000a;padding:20px;color:var(--ink)}
+.field path{fill:none;stroke:var(--pur);stroke-width:1.6;opacity:.55;stroke-dasharray:6 10;animation:flow 6s linear infinite}
+.field path:nth-child(even){stroke:var(--pur2);animation-duration:9s}
+@keyframes flow{to{stroke-dashoffset:-160}}
+@media(prefers-reduced-motion:reduce){.field path{animation:none}html{scroll-behavior:auto}}
+.stats{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line);align-items:flex-start}
+.stats .card{background:none;border:0;padding:0;font:700 28px "Chakra Petch",sans-serif}
+.stats small{display:block;font:13px Inter,sans-serif;color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:18px;margin-top:28px}
+.card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.avatar,.face{width:84px;height:84px;border-radius:50%;margin-bottom:14px}
+.avatar{display:grid;place-items:center;font:700 26px "Chakra Petch";color:#0b0010;background:linear-gradient(135deg,var(--pur),var(--hot))}
+.face{overflow:hidden;border:2px solid var(--pur)}
+.face img{width:100%;height:100%;object-fit:cover}
+.role{color:var(--pur);font-weight:600;font-size:14px;margin-bottom:8px}
+.card p{color:var(--dim);font-size:15px;margin:0;white-space:pre-line}
+.sub{margin-top:44px;font-size:26px}
+.note{font-size:13px;color:#8d7aa3;margin-top:18px}
+.impact{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.impact b{display:block;font:700 clamp(36px,5vw,52px) "Chakra Petch";color:var(--hot);text-shadow:0 0 16px #2ef2ff66}
+.events{display:grid;gap:12px;margin-top:28px}
+.ev{display:grid;grid-template-columns:7.5em minmax(0,1fr) auto;gap:16px;align-items:start;padding:16px 20px}
+.ev time{font:700 16px "Chakra Petch";color:var(--pur);white-space:nowrap}
+.ev .evimg{width:140px;aspect-ratio:4/3;border-radius:10px;overflow:hidden}
+.ev .evimg img,.ev .evimg video{width:100%;height:100%;object-fit:cover}
+.steps{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));counter-reset:s}
+.steps .card{padding-top:56px}
+.steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:16px;left:22px;width:30px;height:30px;border-radius:50%;border:1px solid var(--pur);display:grid;place-items:center;font:700 15px "Chakra Petch";color:var(--pur)}
+.principles{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.principles .card{border-left:3px solid var(--pur)}
+.thumb{aspect-ratio:16/10;border-radius:10px;background:#07030b;border:1px solid var(--line);margin-bottom:14px;overflow:hidden;display:grid;place-items:center}
+.thumb svg,.thumb img,.thumb video{width:100%;height:100%;object-fit:cover;display:block}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:#c04bff22;color:var(--pur);margin-bottom:8px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
+.tabs button{min-height:44px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--dim);font:600 15px Inter;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--pur);color:#0b0010;border-color:var(--pur)}
+.media .card .btn{margin-top:14px}
+.blogbar{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.blogbar input{flex:1 1 240px;min-height:44px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:16px Inter}
+.post{cursor:pointer}
+.post .meta{font-size:13px;color:#8d7aa3;margin-top:12px}
+/* edit mode */
+.tools{display:none;position:absolute;top:8px;right:8px;gap:4px;z-index:2}
+.editing .tools{display:flex}
+.tools button{min-width:36px;min-height:36px;border-radius:8px;border:1px solid var(--line);background:#000c;color:var(--ink);font:600 13px Inter;cursor:pointer;padding:0 8px}
+.tools button:hover{border-color:var(--hot);color:var(--hot)}
+.tools button.del:hover{border-color:#ff5c8a;color:#ff5c8a}
+.editing .card{outline:1px dashed #c04bff55;outline-offset:3px}
+.editing .stats .card{padding-top:44px;min-width:200px}
+.stats .tools{left:0;right:auto;top:0}
+.add{display:none;min-height:120px;border:2px dashed var(--pur2);border-radius:16px;background:none;color:var(--pur);font:600 16px Inter;cursor:pointer}
+.editing .add{display:block}
+.stats .add{min-height:60px;padding:0 16px}
+.edit-only{display:none}
+.editing .edit-only{display:inline-flex}
+#ownerBar{display:none;position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;width:min(1100px,calc(100% - 24px));background:#0c0612f2;border:1px solid var(--pur);border-radius:16px;box-shadow:0 0 40px #c04bff55;padding:12px 16px;gap:10px 16px;align-items:center;flex-wrap:wrap}
+.owner #ownerBar{display:flex}
+#ownerBar .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+#ownerBar .seg button{min-height:40px;padding:6px 14px;border:0;background:none;color:var(--dim);font:600 14px Inter;cursor:pointer}
+#ownerBar .seg button[aria-pressed=true]{background:var(--pur);color:#0b0010}
+#status{flex:1 1 200px;font-size:14px;color:var(--dim)}
+#status b{color:var(--hot)}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--pur);border-radius:18px;max-width:760px;width:calc(100% - 32px);padding:clamp(20px,4vw,40px);box-shadow:0 0 60px #c04bff55}
+dialog::backdrop{background:#000c}
+dialog h2{font-size:clamp(28px,4vw,40px)}
+.close{float:right}
+.rbody p{color:var(--dim);white-space:pre-line}
+form.ed{display:grid;gap:10px;clear:both}
+form.ed label{font-weight:600;font-size:14px;color:var(--dim)}
+form.ed input,form.ed textarea,form.ed select{width:100%;min-height:44px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#000;color:var(--ink);font:16px Inter}
+form.ed textarea{min-height:140px}
+.imgfield{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:14px;border:1px dashed var(--pur2);border-radius:12px}
+.imgfield .prev{width:120px;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#000;display:grid;place-items:center;color:#8d7aa3;font-size:13px;text-align:center}
+.imgfield .prev img,.imgfield .prev video{width:100%;height:100%;object-fit:cover}
+.formbtns{display:flex;gap:10px;justify-content:flex-end;margin-top:8px}
+footer{border-top:1px solid var(--line);padding:40px max(5vw,16px);color:var(--dim);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+#glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#c04bff22,transparent 65%);transform:translate(-50%,-50%);z-index:0;left:-400px;top:-400px}
+main,nav,footer{position:relative;z-index:1}
+@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:0}.fig{max-height:440px;width:100%;order:-1}}
+@media(max-width:600px){.ev{grid-template-columns:1fr;gap:6px}.ev .evimg{width:100%}nav .links a{padding:10px 8px;font-size:14px}}
+@media(hover:none){#glow{display:none}}
+</style>
+</head>
+<body>
+<div id="glow"></div>
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M5 4h6v12a3 3 0 0 0 6 0V4h6v12a9 9 0 0 1-18 0z" fill="#c04bff"/><rect x="5" y="4" width="6" height="4" fill="#2ef2ff"/><rect x="17" y="4" width="6" height="4" fill="#2ef2ff"/></svg>Neodymium <b>Zenith</b></a>
+    <div class="links"><a href="#team">Team</a><a href="#outreach">Outreach</a><a href="#design">Design</a><a href="#media">Media</a><a href="#blog">Build guides</a></div>
+  </div>
+</nav>
+
+<main id="top">
+<header class="hero">
+  <div>
+    <h1>Neodymium <span>Zenith</span></h1>
+    <p class="tag" id="tagline"></p>
+    <div class="btns">
+      <a class="btn solid hl" href="#media">See the robot in action</a>
+      <a class="btn hl" href="#blog">Read our build guides</a>
+      <button class="btn hl edit-only" data-act="edit" data-k="hero">Edit hero text &amp; photo</button>
+    </div>
+    <div class="stats" id="stats"></div>
+  </div>
+  <div class="fig" id="heroFig">
+    <svg viewBox="0 0 500 500" aria-hidden="true">
+      <defs>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1040"/><stop offset="1" stop-color="#12061c"/></linearGradient>
+        <radialGradient id="halo"><stop offset="0" stop-color="#c04bff" stop-opacity=".45"/><stop offset="1" stop-color="#c04bff" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="250" cy="250" r="230" fill="url(#halo)"/>
+      <g class="field">
+        <path d="M250 250 C 120 60, -20 250, 250 250"/><path d="M250 250 C 380 60, 520 250, 250 250"/>
+        <path d="M250 250 C 90 20, -80 300, 250 250"/><path d="M250 250 C 410 20, 580 300, 250 250"/>
+        <path d="M250 250 C 150 120, 40 260, 250 250"/><path d="M250 250 C 350 120, 460 260, 250 250"/>
+        <path d="M250 250 C 120 440, -20 250, 250 250"/><path d="M250 250 C 380 440, 520 250, 250 250"/>
+        <path d="M250 250 C 90 480, -80 200, 250 250"/><path d="M250 250 C 410 480, 580 200, 250 250"/>
+      </g>
+      <g id="drawnBot">
+        <ellipse cx="250" cy="392" rx="150" ry="16" fill="#000" opacity=".7"/>
+        <rect x="130" y="250" width="240" height="120" rx="14" fill="url(#body)" stroke="#c04bff" stroke-width="3"/>
+        <rect x="130" y="250" width="240" height="8" rx="4" fill="#e7b6ff" opacity=".5"/>
+        <rect x="220" y="120" width="22" height="135" rx="4" fill="#1a0a28" stroke="#c04bff" stroke-width="2.5"/>
+        <rect x="258" y="140" width="22" height="115" rx="4" fill="#1a0a28" stroke="#c04bff" stroke-width="2.5"/>
+        <path d="M231 125 L 330 92 L 340 112 L 241 145 Z" fill="#24103a" stroke="#2ef2ff" stroke-width="2.5"/>
+        <path d="M330 86 l28 -6 l6 22 l-10 4 l-4 -12 l-16 4 z M336 112 l28 6 l-4 20 l-10 -2 l2 -10 l-18 -4z" fill="#2ef2ff"/>
+        <g fill="#0a0410" stroke="#c04bff" stroke-width="3"><circle cx="170" cy="372" r="30"/><circle cx="330" cy="372" r="30"/></g>
+        <g fill="#c04bff"><circle cx="170" cy="372" r="8"/><circle cx="330" cy="372" r="8"/></g>
+        <rect x="152" y="280" width="90" height="56" rx="8" fill="#0a0410" stroke="#3a1d55"/>
+        <circle cx="175" cy="308" r="10" fill="#2ef2ff"/><circle cx="210" cy="308" r="10" fill="#b6ff3b"/>
+        <text x="300" y="320" text-anchor="middle" font-family="Chakra Petch" font-weight="700" font-size="34" fill="#c04bff">Nd</text>
+        <text x="300" y="342" text-anchor="middle" font-family="Inter" font-size="11" fill="#b7a3cc">60</text>
+      </g>
+    </svg>
+    <div id="heroPhoto"></div>
+  </div>
+</header>
+
+<section class="band" id="team">
+  <div class="wrap">
+    <h2>Team &amp; mentors</h2>
+    <p class="lede">We're a community team of high schoolers split into build, programming, CAD and outreach sub-teams — but everyone touches the robot.</p>
+    <div class="grid" id="members"></div>
+    <h3 class="sub">Coaches &amp; mentors</h3>
+    <div class="grid" id="mentors"></div>
+  </div>
+</section>
+
+<section class="band" id="outreach">
+  <div class="wrap">
+    <h2>Outreach &amp; impact</h2>
+    <p class="lede">Gracious Professionalism doesn't stop at the field. We run workshops, mentor younger teams and bring STEM to places it doesn't usually reach.</p>
+    <div class="grid impact" id="impact"></div>
+    <div class="events" id="events"></div>
+  </div>
+</section>
+
+<section class="band" id="design">
+  <div class="wrap">
+    <h2>Design philosophy &amp; process</h2>
+    <p class="lede">Simple, serviceable, iterated. A mechanism that works every match beats a clever one that works sometimes.</p>
+    <div class="grid principles" id="principles"></div>
+    <h3 class="sub">How we build a robot each season</h3>
+    <div class="grid steps" id="steps"></div>
+  </div>
+</section>
+
+<section class="band" id="media">
+  <div class="wrap">
+    <h2>CAD &amp; robot videos</h2>
+    <p class="lede">Our models, renders and match clips.</p>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" data-f="all">All</button>
+      <button role="tab" aria-selected="false" data-f="CAD">CAD designs</button>
+      <button role="tab" aria-selected="false" data-f="Video">Videos</button>
+    </div>
+    <div class="grid media" id="media_"></div>
+  </div>
+</section>
+
+<section class="band" id="blog">
+  <div class="wrap">
+    <h2>Build guides</h2>
+    <p class="lede">How-to write-ups from our team for anyone building their first (or fifth) robot.</p>
+    <div class="blogbar"><input type="search" id="q" placeholder="Search guides — e.g. drivetrain, odometry" aria-label="Search guides"></div>
+    <div class="grid" id="posts"></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Neodymium Zenith · FIRST Tech Challenge</span>
+    <span>FIRST® and FIRST Tech Challenge are trademarks of FIRST.</span>
+  </div>
+</footer>
+
+<div id="ownerBar" role="region" aria-label="Editing controls">
+  <div class="seg"><button id="mEdit" aria-pressed="true">Edit</button><button id="mView" aria-pressed="false">Preview</button></div>
+  <span id="status">Loading…</span>
+  <button class="btn sm solid hl" id="connect">Connect site folder</button>
+  <button class="btn sm hl" id="undo" disabled>Undo</button>
+  <button class="btn sm hl" id="dl">Download content.json</button>
+</div>
+
+<dialog id="reader"><button class="btn sm hl close" data-close>Close</button><div class="rbody" id="readerBody"></div></dialog>
+<dialog id="editor"><button class="btn sm hl close" data-close>Close</button><h2 id="edTitle">Edit</h2><form class="ed" id="edForm"></form></dialog>
+
+<script>
+{
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $=id=>document.getElementById(id);
+const clone=o=>JSON.parse(JSON.stringify(o));
+const ini=n=>String(n||'?').trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+const blobs={};
+const safe=p=>/^(images\/[\w.\-]+|https:\/\/\S+)$/.test(String(p||''));
+const blob=p=>blobs[p]||(safe(p)?p:'');
+const isVid=t=>String(t||'').startsWith('video');
+const media=(id,type,alt)=>!id?'':isVid(type)?`<video src="${blob(id)}" controls muted playsinline preload="metadata"></video>`:`<img src="${blob(id)}" alt="${esc(alt)}" loading="lazy">`;
+
+/* fallback sample content — the site normally loads content.json */
+const DEFAULT={
+ teamNo:'00000',
+ tagline:'Strong attraction to good engineering. We design, build and program competition robots — and help other students do the same.',
+ heroImg:null,heroType:null,
+ stats:[{n:'4',l:'seasons competing'},{n:'12',l:'student members'},{n:'3',l:'mentors'}],
+ members:[
+  {name:'Ava Patel',role:'Captain · Build lead',bio:'Runs the build schedule and keeps the pit organized.'},
+  {name:'Marcus Lee',role:'Programming lead',bio:'Wrote our autonomous pathing and vision pipeline.'},
+  {name:'Priya Nair',role:'CAD lead',bio:'Models every part in Onshape before a single cut is made.'},
+  {name:'Diego Romero',role:'Drive team',bio:'Primary driver with 200+ hours of practice this season.'},
+  {name:'Hannah Kim',role:'Outreach lead',bio:'Organizes our workshops and FLL mentoring program.'},
+  {name:'Jonah Brooks',role:'Build · Electrical',bio:'Wiring, cable management and zero brown-outs.'}],
+ mentors:[
+  {name:'Dr. Lena Ortiz',role:'Engineering mentor',bio:'Mechanical engineer; coaches design reviews and failure analysis.'},
+  {name:'Sam Chen',role:'Software mentor',bio:'Software engineer; helps with code reviews and control theory.'},
+  {name:'Rita Gomez',role:'Head coach',bio:'Handles logistics, travel and keeping us all on track.'}],
+ impact:[{n:'1,200+',l:'students reached at demos'},{n:'6',l:'FLL teams mentored'},{n:'340',l:'volunteer hours this season'},{n:'2',l:'new FTC teams started'}],
+ events:[
+  {date:'Sep 2026',title:'Robotics 101 summer camp',desc:'Week-long camp for 40 middle schoolers — each group built and drove a simple bot.'},
+  {date:'Oct 2026',title:'Library STEM night',desc:'Hands-on robot demos and a "drive our robot" booth for families.'},
+  {date:'Nov 2026',title:'FLL mentoring kickoff',desc:'Started weekly sessions with six FIRST LEGO League teams.'}],
+ principles:[
+  {title:'Reliability over complexity',text:'Every mechanism must survive 50 back-to-back cycles before it goes on the competition robot.'},
+  {title:'Design for repair',text:'Any part should be swappable in the pit within two minutes.'},
+  {title:'Data decides',text:'We time cycles, log sensor data and let the numbers pick between design options.'},
+  {title:'Document everything',text:'Our engineering portfolio is written as we go, not the night before judging.'}],
+ steps:[
+  {title:'Analyze the game',text:'Break down scoring and rank strategies by points per second.'},
+  {title:'Brainstorm & sketch',text:'Prototype the top three ideas in cardboard and wood.'},
+  {title:'CAD & simulate',text:'Full robot in Onshape; check clearances, weight and center of gravity.'},
+  {title:'Build & test',text:'Machine, assemble, then cycle-test until it stops failing.'},
+  {title:'Iterate',text:'Review after every event and redesign the weakest subsystem.'}],
+ media:[
+  {type:'CAD',title:'Full robot assembly',desc:'Season robot in Onshape — drivetrain, lift and claw.',url:''},
+  {type:'CAD',title:'Linear slide lift',desc:'Two-stage cascade lift with belt drive.',url:''},
+  {type:'Video',title:'Autonomous run',desc:'30-second autonomous routine.',url:''},
+  {type:'Video',title:'Robot reveal',desc:'Our season reveal video.',url:''}],
+ posts:[
+  {title:'Choosing your first drivetrain',author:'Ava Patel',tag:'Mechanical',date:'Oct 2026',body:'Mecanum, tank or swerve? For most rookie teams, a mecanum drivetrain built from a kit chassis is the best balance of speed, agility and simplicity.\n\nIf the game rewards lining up sideways with targets, mecanum wins. If you need to push, tank drive with traction wheels is stronger.\n\nWhatever you pick: keep the frame square, belt tension consistent and the battery low and centered.'},
+  {title:'Odometry pods in a weekend',author:'Marcus Lee',tag:'Programming',date:'Nov 2026',body:'Dead-wheel odometry tells your autonomous exactly where the robot is.\n\n1. Mount two parallel pods and one perpendicular pod, spring-loaded onto the mat.\n2. Convert encoder ticks to inches using wheel diameter and ticks per revolution.\n3. Use a library like Road Runner or Pedro Pathing to turn readings into a pose and follow paths.\n\nTune by pushing the robot a measured distance and comparing.'},
+  {title:'Wiring that never fails at competition',author:'Jonah Brooks',tag:'Electrical',date:'Nov 2026',body:'Most robot failures at events are electrical.\n\nUse strain relief on every connector, label both ends of every cable and keep motor and sensor wires apart.\n\nBefore each match: battery voltage, a tug on each connector and a quick motor test.'}]
+};
+const LISTS=['stats','members','mentors','impact','events','principles','steps','media','posts'];
+const SCHEMA={
+ hero:{label:'hero',single:true,fields:[['teamNo','Team number'],['tagline','Tagline','area']],img:'heroImg',imgLabel:"This season's robot photo"},
+ stats:{label:'stat',fields:[['n','Number'],['l','Label']]},
+ members:{label:'team member',fields:[['name','Name'],['role','Role'],['bio','Description','area']],img:'img',imgLabel:'Photo'},
+ mentors:{label:'coach or mentor',fields:[['name','Name'],['role','Role'],['bio','Description','area']],img:'img',imgLabel:'Photo'},
+ impact:{label:'impact number',fields:[['n','Number'],['l','Label']]},
+ events:{label:'outreach event',fields:[['date','Date'],['title','Event'],['desc','Description','area']],img:'img',imgLabel:'Photo or short video',vid:true},
+ principles:{label:'design principle',fields:[['title','Principle'],['text','Description','area']],img:'img',imgLabel:'Image'},
+ steps:{label:'process step',fields:[['title','Step'],['text','Description','area']],img:'img',imgLabel:'Image'},
+ media:{label:'CAD design or video',fields:[['type','Type','sel:CAD|Video'],['title','Title'],['desc','Description','area'],['url','Link (Onshape, YouTube…) — optional']],img:'img',imgLabel:'Image, render or video file',vid:true},
+ posts:{label:'build guide',fields:[['title','Title'],['author','Author'],['tag','Topic'],['date','Date'],['body','Guide (blank line between paragraphs)','area']]}
+};
+const norm=c=>{c=Object.assign({},c);for(const k of LISTS)if(!Array.isArray(c[k]))c[k]=[];return c};
+
+let draft=norm(clone(DEFAULT)),dir=null,dirty=false;
+let editing=false,owner=false;
+let history=[],filter='all';
+
+const cadSvg=c=>`<svg viewBox="0 0 160 100"><g stroke="#2a1438" stroke-width=".6">${[0,1,2,3,4,5,6,7].map(i=>`<line x1="0" y1="${i*14}" x2="160" y2="${i*14}"/>`).join('')}</g><g fill="none" stroke="${c}" stroke-width="1.4"><path d="M40 60 L80 40 L120 60 L80 80 Z"/><path d="M40 60 V72 L80 92 L120 72 V60"/><path d="M80 80 V92"/><path d="M70 45 V15 L80 10 L90 15 V45"/><path d="M90 15 L100 20 V50"/></g></svg>`;
+const vidSvg=`<svg viewBox="0 0 160 100"><rect width="160" height="100" fill="#12061c"/><circle cx="80" cy="50" r="20" fill="#c04bff"/><path d="M74 40 L92 50 L74 60 Z" fill="#000"/></svg>`;
+const linkOk=u=>/^https:\/\//i.test(String(u||''));
+
+const CARD={
+ stats:it=>`${esc(it.n)}<small>${esc(it.l)}</small>`,
+ members:it=>`${it.img?`<div class="face">${media(it.img,it.imgType,it.name)}</div>`:`<div class="avatar">${esc(ini(it.name))}</div>`}<h3>${esc(it.name)}</h3><div class="role">${esc(it.role)}</div><p>${esc(it.bio)}</p>`,
+ impact:it=>`<b>${esc(it.n)}</b>${esc(it.l)}`,
+ events:it=>`<time>${esc(it.date)}</time><div><h3 style="font-size:19px">${esc(it.title)}</h3><p>${esc(it.desc)}</p></div>${it.img?`<div class="evimg">${media(it.img,it.imgType,it.title)}</div>`:'<span></span>'}`,
+ principles:it=>`${it.img?`<div class="thumb">${media(it.img,it.imgType,it.title)}</div>`:''}<h3>${esc(it.title)}</h3><p>${esc(it.text)}</p>`,
+ media:it=>`<div class="thumb">${it.img?media(it.img,it.imgType,it.title):it.type==='Video'?vidSvg:cadSvg('#c04bff')}</div><span class="chip">${it.type==='Video'?'Video':'CAD design'}</span><h3>${esc(it.title)}</h3><p>${esc(it.desc)}</p>${linkOk(it.url)?`<a class="btn sm hl" href="${esc(it.url)}" target="_blank" rel="noopener">Open ${it.type==='Video'?'video':'CAD model'}</a>`:''}`,
+ posts:it=>`<span class="chip">${esc(it.tag||'Guide')}</span><h3>${esc(it.title)}</h3><p>${esc(String(it.body||'').split('\n')[0].slice(0,140))}…</p><div class="meta">${esc(it.author)} · ${esc(it.date)}</div>`
+};
+CARD.mentors=CARD.members;CARD.steps=CARD.principles;
+const CLS={events:'ev',posts:'post'};
+
+const view=()=>draft;
+const tools=`<div class="tools"><button data-act="left" aria-label="Move earlier">←</button><button data-act="right" aria-label="Move later">→</button><button data-act="edit">Edit</button><button class="del" data-act="del">Delete</button></div>`;
+
+function render(){
+ const c=view();
+ document.body.classList.toggle('editing',editing);
+ $('tagline').textContent=`FIRST Tech Challenge Team #${c.teamNo||'—'} · ${c.tagline||''}`;
+ const hp=$('heroPhoto');
+ $('drawnBot').style.display=c.heroImg?'none':'';
+ hp.innerHTML=c.heroImg?`<div class="photo-wrap">${media(c.heroImg,c.heroType,"This season's robot")}</div>`
+  :editing?`<div class="ph"><strong style="font:700 22px 'Chakra Petch'">Add this season's robot</strong><span style="color:var(--dim)">Upload a photo to replace the drawing.</span><button class="btn solid hl" data-act="edit" data-k="hero">Upload robot photo</button></div>`:'';
+ for(const k of LISTS){
+  let items=c[k].map((it,i)=>[it,i]);
+  if(k==='media'&&filter!=='all')items=items.filter(([it])=>(it.type||'CAD')===filter);
+  if(k==='posts'){const q=$('q').value.toLowerCase();if(q)items=items.filter(([it])=>[it.title,it.body,it.tag,it.author].join(' ').toLowerCase().includes(q))}
+  const el=$(k==='media'?'media_':k);
+  el.innerHTML=items.map(([it,i])=>`<article class="card hl ${CLS[k]||''}" data-k="${k}" data-i="${i}"${k==='posts'?' data-act="read" tabindex="0"':''}>${tools}${CARD[k](it)}</article>`).join('')
+   +`<button class="add hl" data-act="add" data-k="${k}">+ Add ${SCHEMA[k].label}</button>`
+   +(!items.length&&!editing&&k!=='stats'?`<p class="lede">${k==='posts'&&$('q').value?'No guides match that search.':'Coming soon.'}</p>`:'');
+ }
+ renderBar();
+}
+
+/* editing bar */
+const FS='showDirectoryPicker' in window;
+let saveState='';
+const setSave=x=>{saveState=x;renderBar()};
+function renderBar(){
+ if(!owner)return;
+ $('mEdit').setAttribute('aria-pressed',editing);$('mView').setAttribute('aria-pressed',!editing);
+ $('undo').disabled=!history.length;
+ $('connect').textContent=dir?'Folder: '+dir.name:'Connect site folder';
+ $('connect').style.display=FS?'':'none';
+ if(saveState)return void($('status').innerHTML=saveState);
+ $('status').innerHTML=!editing?'Preview — this is what visitors will see.'
+  :!FS?'<b>Use Chrome or Edge</b> to save straight into your folder. Here, use Download content.json.'
+  :!dir?'<b>Connect your site folder</b> so changes and photos are saved.'
+  :'All changes saved to content.json. Upload the folder to your host to publish.';
+}
+async function writeFile(d,name,data){const h=await d.getFileHandle(name,{create:true});const w=await h.createWritable();await w.write(data);await w.close()}
+let saving=false,again=false;
+async function save(){
+ if(!dir){if(dirty)renderBar();return}
+ if(saving){again=true;return}
+ saving=true;setSave('Saving…');
+ try{await writeFile(dir,'content.json',JSON.stringify(draft,null,2));dirty=false;setSave('')}
+ catch(e){setSave("<b>Couldn't save</b> — reconnect the folder and try again.")}
+ saving=false;if(again){again=false;save()}
+}
+function commit(fn){
+ history.push(JSON.stringify(draft));if(history.length>40)history.shift();
+ dirty=true;fn(draft);render();save();
+}
+async function loadBlobs(){
+ if(!dir)return;
+ let imgs;try{imgs=await dir.getDirectoryHandle('images')}catch(_){return}
+ const paths=new Set();JSON.stringify(draft,(k,v)=>{if(typeof v==='string'&&v.startsWith('images/'))paths.add(v);return v});
+ for(const p of paths){try{const f=await (await imgs.getFileHandle(p.slice(7))).getFile();blobs[p]=URL.createObjectURL(f)}catch(_){}}
+}
+
+/* clicks */
+document.addEventListener('click',e=>{
+ const b=e.target.closest('[data-act]');if(!b)return;
+ const art=b.closest('[data-k]');const k=b.dataset.k||art?.dataset.k;const i=art?+art.dataset.i:-1;
+ const act=b.dataset.act;
+ if(act==='read'){const p=view().posts[i];if(!p)return;
+  $('readerBody').innerHTML=`<span class="chip">${esc(p.tag||'Guide')}</span><h2>${esc(p.title)}</h2><p class="note">${esc(p.author)} · ${esc(p.date)}</p>`+String(p.body||'').split(/\n\s*\n/).map(x=>`<p>${esc(x)}</p>`).join('');
+  $('reader').showModal();return}
+ if(!editing)return;
+ e.stopPropagation();
+ if(act==='edit')openEditor(k,k==='hero'?-1:i);
+ else if(act==='add')openEditor(k,-1);
+ else if(act==='del')commit(d=>d[k].splice(i,1));
+ else if(act==='left'||act==='right'){const j=act==='left'?i-1:i+1;if(j<0||j>=draft[k].length)return;commit(d=>{[d[k][i],d[k][j]]=[d[k][j],d[k][i]]})}
+},true);
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.post'))e.target.click()});
+
+/* editor dialog */
+function openEditor(k,i){
+ const sc=SCHEMA[k];const isNew=!sc.single&&i<0;
+ const obj=sc.single?draft:isNew?{}:draft[k][i];
+ const imgF=sc.img,typeF=k==='hero'?'heroType':'imgType';
+ let img=imgF?obj[imgF]||null:null,imgType=imgF?obj[typeF]||null:null;
+ $('edTitle').textContent=(sc.single?'Edit hero':isNew?'Add '+sc.label:'Edit '+sc.label);
+ const f=$('edForm');
+ f.innerHTML=sc.fields.map(([n,l,t],x)=>{
+  const id='f'+x,v=obj[n]??'';
+  if(t==='area')return `<label for="${id}">${esc(l)}</label><textarea id="${id}" name="${n}">${esc(v)}</textarea>`;
+  if(t&&t.startsWith('sel:'))return `<label for="${id}">${esc(l)}</label><select id="${id}" name="${n}">${t.slice(4).split('|').map(o=>`<option${o===v?' selected':''}>${o}</option>`).join('')}</select>`;
+  return `<label for="${id}">${esc(l)}</label><input id="${id}" name="${n}" value="${esc(v)}"${x===0?' required':''}>`;
+ }).join('')+(imgF?`<label>${esc(sc.imgLabel)}</label><div class="imgfield"><div class="prev" id="prev"></div><label class="btn sm hl">Choose file<input type="file" id="imgIn" accept="image/*${sc.vid?',video/*':''}" hidden></label><button type="button" class="btn sm hl" id="imgRm">Remove</button><span id="upst" class="note" style="margin:0"></span></div>`:'')
+  +`<div class="formbtns"><button type="button" class="btn hl" data-close>Cancel</button><button class="btn solid hl" id="edSave">Save</button></div>`;
+ const showPrev=()=>{const p=$('prev');if(p)p.innerHTML=img?media(img,imgType,'Preview'):'No image'};
+ showPrev();
+ if(imgF){
+  $('imgRm').onclick=()=>{img=null;imgType=null;showPrev()};
+  $('imgIn').onchange=async ev=>{
+   const file=ev.target.files[0];if(!file)return;
+   if(!dir){$('upst').textContent=FS?'Connect your site folder first (button at the bottom of the page).':'Saving photos needs Chrome or Edge.';return}
+   $('upst').textContent='Saving…';$('edSave').disabled=true;
+   try{
+    const ext=(file.name.match(/\.[a-z0-9]+$/i)||[''])[0].toLowerCase();
+    const base=file.name.replace(/\.[^.]+$/,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').slice(0,40)||'image';
+    const name=base+'-'+Date.now().toString(36)+ext;
+    const imgs=await dir.getDirectoryHandle('images',{create:true});
+    await writeFile(imgs,name,file);
+    img='images/'+name;imgType=file.type;blobs[img]=URL.createObjectURL(file);showPrev();$('upst').textContent='Saved to images/'+name;
+   }catch(err){$('upst').textContent="Couldn't save the file. Try again."}
+   $('edSave').disabled=false;ev.target.value='';
+  };
+ }
+ f.querySelectorAll('[data-close]').forEach(b=>b.onclick=()=>$('editor').close());
+ f.onsubmit=ev=>{
+  ev.preventDefault();
+  const vals={};for(const[n]of sc.fields)vals[n]=f.elements[n].value.trim();
+  if(imgF){vals[imgF]=img;vals[typeF]=imgType}
+  commit(d=>{
+   if(sc.single)Object.assign(d,vals);
+   else if(isNew)d[k].push(vals);
+   else Object.assign(d[k][i],vals);
+  });
+  $('editor').close();
+ };
+ $('editor').showModal();
+}
+
+document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>b.closest('dialog').close()));
+document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target===d)d.close()}));
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===b));filter=b.dataset.f;render()}));
+$('q').addEventListener('input',render);
+
+$('mEdit').onclick=()=>{editing=true;render()};
+$('mView').onclick=()=>{editing=false;render()};
+$('undo').onclick=()=>{if(!history.length)return;draft=JSON.parse(history.pop());dirty=true;render();save()};
+$('dl').onclick=()=>{
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(draft,null,2)],{type:'application/json'}));
+ a.download='content.json';document.body.appendChild(a);a.click();a.remove();
+};
+$('connect').onclick=async()=>{
+ try{
+  const d=await showDirectoryPicker({id:'nz-site',mode:'readwrite'});
+  let found=false;
+  try{const f=await (await d.getFileHandle('content.json')).getFile();draft=norm(JSON.parse(await f.text()));found=true}catch(_){}
+  try{await d.getFileHandle('index.html')}catch(_){setSave("<b>That folder has no index.html</b> — pick the folder this site lives in.");return}
+  dir=d;history=[];await loadBlobs();
+  if(!found)await save();
+  setSave('');render();
+ }catch(e){if(e&&e.name!=='AbortError')setSave("<b>Couldn't open that folder.</b>")}
+};
+const setMode=()=>{owner=location.hash==='#edit';editing=owner;document.body.classList.toggle('owner',owner);render()};
+addEventListener('hashchange',setMode);
+addEventListener('beforeunload',e=>{if(owner&&dirty&&!dir){e.preventDefault();e.returnValue=''}});
+
+/* load published content */
+(async()=>{
+ try{const r=await fetch('content.json',{cache:'no-store'});if(r.ok)draft=norm(await r.json())}catch(_){}
+ setMode();
+})();
+render();
+
+const g=$('glow');
+addEventListener('pointermove',e=>{g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'},{passive:true});
+}
+</script>
+</body>
+</html>
