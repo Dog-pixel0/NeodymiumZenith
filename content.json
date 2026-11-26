@@ -1,0 +1,193 @@
+{
+  "teamNo": "00000",
+  "tagline": "Strong attraction to good engineering. We design, build and program competition robots — and help other students do the same.",
+  "heroImg": "images/img-2780-2-mwy13lus.jpg",
+  "heroType": "image/jpeg",
+  "stats": [
+    {
+      "n": "4",
+      "l": "seasons competing"
+    },
+    {
+      "n": "12",
+      "l": "student members"
+    },
+    {
+      "n": "3",
+      "l": "mentors"
+    }
+  ],
+  "members": [
+    {
+      "name": "Ava Patel",
+      "role": "Captain · Build lead",
+      "bio": "Runs the build schedule and keeps the pit organized."
+    },
+    {
+      "name": "Marcus Lee",
+      "role": "Programming lead",
+      "bio": "Wrote our autonomous pathing and vision pipeline."
+    },
+    {
+      "name": "Priya Nair",
+      "role": "CAD lead",
+      "bio": "Models every part in Onshape before a single cut is made."
+    },
+    {
+      "name": "Diego Romero",
+      "role": "Drive team",
+      "bio": "Primary driver with 200+ hours of practice this season."
+    },
+    {
+      "name": "Hannah Kim",
+      "role": "Outreach lead",
+      "bio": "Organizes our workshops and FLL mentoring program."
+    },
+    {
+      "name": "Jonah Brooks",
+      "role": "Build · Electrical",
+      "bio": "Wiring, cable management and zero brown-outs."
+    }
+  ],
+  "mentors": [
+    {
+      "name": "Dr. Lena Ortiz",
+      "role": "Engineering mentor",
+      "bio": "Mechanical engineer; coaches design reviews and failure analysis."
+    },
+    {
+      "name": "Sam Chen",
+      "role": "Software mentor",
+      "bio": "Software engineer; helps with code reviews and control theory."
+    },
+    {
+      "name": "Rita Gomez",
+      "role": "Head coach",
+      "bio": "Handles logistics, travel and keeping us all on track."
+    }
+  ],
+  "impact": [
+    {
+      "n": "1,200+",
+      "l": "students reached at demos"
+    },
+    {
+      "n": "6",
+      "l": "FLL teams mentored"
+    },
+    {
+      "n": "340",
+      "l": "volunteer hours this season"
+    },
+    {
+      "n": "2",
+      "l": "new FTC teams started"
+    }
+  ],
+  "events": [
+    {
+      "date": "Sep 2026",
+      "title": "Robotics 101 summer camp",
+      "desc": "Week-long camp for 40 middle schoolers — each group built and drove a simple bot."
+    },
+    {
+      "date": "Oct 2026",
+      "title": "Library STEM night",
+      "desc": "Hands-on robot demos and a \"drive our robot\" booth for families."
+    },
+    {
+      "date": "Nov 2026",
+      "title": "FLL mentoring kickoff",
+      "desc": "Started weekly sessions with six FIRST LEGO League teams."
+    }
+  ],
+  "principles": [
+    {
+      "title": "Reliability over complexity",
+      "text": "Every mechanism must survive 50 back-to-back cycles before it goes on the competition robot."
+    },
+    {
+      "title": "Design for repair",
+      "text": "Any part should be swappable in the pit within two minutes."
+    },
+    {
+      "title": "Data decides",
+      "text": "We time cycles, log sensor data and let the numbers pick between design options."
+    },
+    {
+      "title": "Document everything",
+      "text": "Our engineering portfolio is written as we go, not the night before judging."
+    }
+  ],
+  "steps": [
+    {
+      "title": "Analyze the game",
+      "text": "Break down scoring and rank strategies by points per second."
+    },
+    {
+      "title": "Brainstorm & sketch",
+      "text": "Prototype the top three ideas in cardboard and wood."
+    },
+    {
+      "title": "CAD & simulate",
+      "text": "Full robot in Onshape; check clearances, weight and center of gravity."
+    },
+    {
+      "title": "Build & test",
+      "text": "Machine, assemble, then cycle-test until it stops failing."
+    },
+    {
+      "title": "Iterate",
+      "text": "Review after every event and redesign the weakest subsystem."
+    }
+  ],
+  "media": [
+    {
+      "type": "CAD",
+      "title": "Full robot assembly",
+      "desc": "Season robot in Onshape — drivetrain, lift and claw.",
+      "url": ""
+    },
+    {
+      "type": "CAD",
+      "title": "Linear slide lift",
+      "desc": "Two-stage cascade lift with belt drive.",
+      "url": ""
+    },
+    {
+      "type": "Video",
+      "title": "Autonomous run",
+      "desc": "30-second autonomous routine.",
+      "url": ""
+    },
+    {
+      "type": "Video",
+      "title": "Robot reveal",
+      "desc": "Our season reveal video.",
+      "url": ""
+    }
+  ],
+  "posts": [
+    {
+      "title": "Choosing your first drivetrain",
+      "author": "Ava Patel",
+      "tag": "Mechanical",
+      "date": "Oct 2026",
+      "body": "Mecanum, tank or swerve? For most rookie teams, a mecanum drivetrain built from a kit chassis is the best balance of speed, agility and simplicity.\n\nIf the game rewards lining up sideways with targets, mecanum wins. If you need to push, tank drive with traction wheels is stronger.\n\nWhatever you pick: keep the frame square, belt tension consistent and the battery low and centered."
+    },
+    {
+      "title": "Odometry pods in a weekend",
+      "author": "Marcus Lee",
+      "tag": "Programming",
+      "date": "Nov 2026",
+      "body": "Dead-wheel odometry tells your autonomous exactly where the robot is.\n\n1. Mount two parallel pods and one perpendicular pod, spring-loaded onto the mat.\n2. Convert encoder ticks to inches using wheel diameter and ticks per revolution.\n3. Use a library like Road Runner or Pedro Pathing to turn readings into a pose and follow paths.\n\nTune by pushing the robot a measured distance and comparing."
+    },
+    {
+      "title": "Wiring that never fails at competition",
+      "author": "Jonah Brooks",
+      "tag": "Electrical",
+      "date": "Nov 2026",
+      "body": "Most robot failures at events are electrical.\n\nUse strain relief on every connector, label both ends of every cable and keep motor and sensor wires apart.\n\nBefore each match: battery voltage, a tug on each connector and a quick motor test."
+    }
+  ]
+}
