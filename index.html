@@ -45,11 +45,11 @@ nav .links a:hover{background:#2ef2ff12}
 .hero h1 span{display:block;color:var(--pur);text-shadow:0 0 28px #8f7cffaa,0 0 4px #8f7cff}
 .tag{color:var(--dim);font-size:18px;margin-bottom:24px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border-radius:10px;border:1px solid var(--pur);color:var(--ink);background:#8f7cff1f;text-decoration:none;font:600 16px Inter,sans-serif;cursor:pointer}
-.btn.solid{background:var(--pur);color:#0a0720}
-.btn.solid:hover{background:var(--hot);color:#001214}
-.btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
-.btn.sm{min-height:36px;padding:6px 14px;font-size:14px}
+.btn{--ring:linear-gradient(90deg,#ce46d5,#5e51e2 50%,#5c9ff5);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:10px 26px;border-radius:999px;border:2px solid transparent;background:linear-gradient(#000,#000) padding-box,var(--ring) border-box;color:#fff;text-decoration:none;font:700 16px Inter,sans-serif;letter-spacing:.01em;cursor:pointer;transition:box-shadow .25s,background .25s,transform .2s}
+.btn.solid{background:linear-gradient(#000,#000) padding-box,var(--ring) border-box;box-shadow:0 0 18px #8a5ae240}
+.btn.hl:hover,.btn.hl:focus-visible,.btn.solid:hover{color:#fff;border-color:transparent;background:linear-gradient(90deg,#24103a,#141038 50%,#0f1c3c) padding-box,var(--ring) border-box;box-shadow:-8px 0 24px #ce46d566,8px 0 24px #5c9ff566;transform:translateY(-1px)}
+.btn:disabled,.btn:disabled:hover{opacity:.4;cursor:not-allowed;box-shadow:none;transform:none;background:linear-gradient(#000,#000) padding-box,var(--ring) border-box}
+.btn.sm{min-height:40px;padding:6px 18px;font-size:14px}
 .fig{position:relative;aspect-ratio:1/1;max-height:640px}
 .fig>svg{position:absolute;inset:0;width:100%;height:100%}
 .fig .photo-wrap{position:absolute;inset:9%;border-radius:24px;overflow:hidden;border:2px solid var(--pur);box-shadow:0 0 50px #8f7cff66;background:#07051a}
@@ -89,7 +89,8 @@ nav .links a:hover{background:#2ef2ff12}
 .chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:#8f7cff22;color:var(--pur);margin-bottom:8px}
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
 .tabs button{min-height:44px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--dim);font:600 15px Inter;cursor:pointer}
-.tabs button[aria-selected=true]{background:var(--pur);color:#0a0720;border-color:var(--pur)}
+.tabs button[aria-selected=true]{border:2px solid transparent;background:linear-gradient(#000,#000) padding-box,linear-gradient(90deg,#ce46d5,#5e51e2 50%,#5c9ff5) border-box;color:#fff;font-weight:700}
+.tabs button:hover{color:#fff;box-shadow:-6px 0 18px #ce46d544,6px 0 18px #5c9ff544}
 .media .card .btn{margin-top:14px}
 .blogbar{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .blogbar input{flex:1 1 240px;min-height:44px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:16px Inter}
@@ -122,9 +123,10 @@ footer{color:#c9c2f0}
 .editing .edit-only{display:inline-flex}
 #ownerBar{display:none;position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;width:min(1100px,calc(100% - 24px));background:#0c0a1ef2;border:1px solid var(--pur);border-radius:16px;box-shadow:0 0 40px #8f7cff55;padding:12px 16px;gap:10px 16px;align-items:center;flex-wrap:wrap}
 .owner #ownerBar{display:flex}
-#ownerBar .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+#ownerBar .seg{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;padding:2px}
 #ownerBar .seg button{min-height:40px;padding:6px 14px;border:0;background:none;color:var(--dim);font:600 14px Inter;cursor:pointer}
-#ownerBar .seg button[aria-pressed=true]{background:var(--pur);color:#0a0720}
+#ownerBar .seg button{border-radius:999px}
+#ownerBar .seg button[aria-pressed=true]{background:linear-gradient(90deg,#ce46d5,#5e51e2 50%,#5c9ff5);color:#fff}
 #status{flex:1 1 200px;font-size:14px;color:var(--dim)}
 #status b{color:var(--hot)}
 dialog{background:var(--panel);color:var(--ink);border:1px solid var(--pur);border-radius:18px;max-width:760px;width:calc(100% - 32px);padding:clamp(20px,4vw,40px);box-shadow:0 0 60px #8f7cff55}
