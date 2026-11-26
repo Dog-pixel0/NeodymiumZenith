@@ -3,23 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neodymium Zenith</title>
+<title>Neodymium Zenith FTC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
 /* VOICE: proud, energetic student team — a competition pit banner, not a corporate site
    IDEA: a neodymium magnet — field lines arc around the robot, everything is "attracted" on hover
    PICTURE: this season's robot photo (or the drawn robot until one is uploaded) wrapped in purple field lines
-   COLOUR and TYPE: pure black, fluorescent purple #c04bff lead, hot cyan #2ef2ff hover accent; Chakra Petch + Inter
+   COLOUR and TYPE: pure black, fluorescent purple #8f7cff lead, hot cyan #2ef2ff hover accent; Chakra Petch + Inter
    LAYOUT: sticky nav, hero, bands for team, outreach, design, media, guides; owner-only edit bar pinned at the bottom */
-:root{color-scheme:dark;--bg:#000;--panel:#0c0612;--line:#2a1438;--ink:#f3eaff;--dim:#b7a3cc;--pur:#c04bff;--pur2:#8a2be2;--hot:#2ef2ff}
+:root{color-scheme:dark;--bg:#06040d;--panel:#0c0a1e;--line:#251b52;--ink:#eeeaff;--dim:#aaa3d6;--pur:#8f7cff;--pur2:#5e45c2;--hot:#2ef2ff}
 :root[data-theme=light],:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
 body.owner{padding-bottom:120px}
 h1,h2,h3{font-family:"Chakra Petch",sans-serif;line-height:1.05;text-wrap:balance;margin:0 0 .4em}
-h2{font-size:clamp(32px,4.5vw,48px);color:var(--pur);text-shadow:0 0 18px #c04bff88}
+h2{font-size:clamp(32px,4.5vw,48px);color:var(--pur);text-shadow:0 0 18px #8f7cff88}
 h3{font-size:22px}
 p{margin:0 0 1em;max-width:68ch}
 a{color:var(--pur)}
@@ -28,7 +28,7 @@ a{color:var(--pur)}
 .lede{color:var(--dim);font-size:17px}
 .card p a,.rbody a,.tag a,.ev a{color:var(--hot);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
 .card p a:hover,.rbody a:hover,.tag a:hover{color:#fff;text-shadow:0 0 10px var(--hot)}
-nav{position:sticky;top:0;z-index:20;background:#000d;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{position:sticky;top:0;z-index:20;background:#06040dd9;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;padding:10px max(5vw,16px)}
 .logo{font:700 20px "Chakra Petch",sans-serif;color:var(--ink);text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px;min-height:44px}
 .logo b{color:var(--pur)}
@@ -42,17 +42,17 @@ nav .links a:hover{background:#2ef2ff12}
 :focus-visible{outline:2px solid var(--hot);outline-offset:3px}
 .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:center;padding:clamp(32px,5vw,72px) max(5vw,16px);max-width:1340px;margin:0 auto;min-height:min(86vh,760px)}
 .hero h1{font-size:clamp(48px,8vw,96px)}
-.hero h1 span{display:block;color:var(--pur);text-shadow:0 0 28px #c04bffaa,0 0 4px #c04bff}
+.hero h1 span{display:block;color:var(--pur);text-shadow:0 0 28px #8f7cffaa,0 0 4px #8f7cff}
 .tag{color:var(--dim);font-size:18px;margin-bottom:24px}
 .btns{display:flex;flex-wrap:wrap;gap:12px}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border-radius:10px;border:1px solid var(--pur);color:var(--ink);background:#c04bff1f;text-decoration:none;font:600 16px Inter,sans-serif;cursor:pointer}
-.btn.solid{background:var(--pur);color:#0b0010}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;border-radius:10px;border:1px solid var(--pur);color:var(--ink);background:#8f7cff1f;text-decoration:none;font:600 16px Inter,sans-serif;cursor:pointer}
+.btn.solid{background:var(--pur);color:#0a0720}
 .btn.solid:hover{background:var(--hot);color:#001214}
 .btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
 .btn.sm{min-height:36px;padding:6px 14px;font-size:14px}
 .fig{position:relative;aspect-ratio:1/1;max-height:640px}
 .fig>svg{position:absolute;inset:0;width:100%;height:100%}
-.fig .photo-wrap{position:absolute;inset:9%;border-radius:24px;overflow:hidden;border:2px solid var(--pur);box-shadow:0 0 50px #c04bff66;background:#07030b}
+.fig .photo-wrap{position:absolute;inset:9%;border-radius:24px;overflow:hidden;border:2px solid var(--pur);box-shadow:0 0 50px #8f7cff66;background:#07051a}
 .fig .photo-wrap img{width:100%;height:100%;object-fit:cover;display:block}
 .fig .ph{position:absolute;inset:9%;border:2px dashed var(--hot);border-radius:24px;display:grid;place-content:center;gap:10px;text-align:center;background:#000a;padding:20px;color:var(--ink)}
 .field path{fill:none;stroke:var(--pur);stroke-width:1.6;opacity:.55;stroke-dasharray:6 10;animation:flow 6s linear infinite}
@@ -65,13 +65,13 @@ nav .links a:hover{background:#2ef2ff12}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:18px;margin-top:28px}
 .card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
 .avatar,.face{width:84px;height:84px;border-radius:50%;margin-bottom:14px}
-.avatar{display:grid;place-items:center;font:700 26px "Chakra Petch";color:#0b0010;background:linear-gradient(135deg,var(--pur),var(--hot))}
+.avatar{display:grid;place-items:center;font:700 26px "Chakra Petch";color:#0a0720;background:linear-gradient(135deg,var(--pur),var(--hot))}
 .face{overflow:hidden;border:2px solid var(--pur)}
 .face img{width:100%;height:100%;object-fit:cover}
 .role{color:var(--pur);font-weight:600;font-size:14px;margin-bottom:8px}
 .card p{color:var(--dim);font-size:15px;margin:0;white-space:pre-line}
 .sub{margin-top:44px;font-size:26px}
-.note{font-size:13px;color:#8d7aa3;margin-top:18px}
+.note{font-size:13px;color:#8b84b8;margin-top:18px}
 .impact{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
 .impact b{display:block;font:700 clamp(36px,5vw,52px) "Chakra Petch";color:var(--hot);text-shadow:0 0 16px #2ef2ff66}
 .events{display:grid;gap:12px;margin-top:28px}
@@ -84,24 +84,35 @@ nav .links a:hover{background:#2ef2ff12}
 .steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:16px;left:22px;width:30px;height:30px;border-radius:50%;border:1px solid var(--pur);display:grid;place-items:center;font:700 15px "Chakra Petch";color:var(--pur)}
 .principles{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
 .principles .card{border-left:3px solid var(--pur)}
-.thumb{aspect-ratio:16/10;border-radius:10px;background:#07030b;border:1px solid var(--line);margin-bottom:14px;overflow:hidden;display:grid;place-items:center}
+.thumb{aspect-ratio:16/10;border-radius:10px;background:#07051a;border:1px solid var(--line);margin-bottom:14px;overflow:hidden;display:grid;place-items:center}
 .thumb svg,.thumb img,.thumb video{width:100%;height:100%;object-fit:cover;display:block}
-.chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:#c04bff22;color:var(--pur);margin-bottom:8px}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:#8f7cff22;color:var(--pur);margin-bottom:8px}
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 8px}
 .tabs button{min-height:44px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--dim);font:600 15px Inter;cursor:pointer}
-.tabs button[aria-selected=true]{background:var(--pur);color:#0b0010;border-color:var(--pur)}
+.tabs button[aria-selected=true]{background:var(--pur);color:#0a0720;border-color:var(--pur)}
 .media .card .btn{margin-top:14px}
 .blogbar{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .blogbar input{flex:1 1 240px;min-height:44px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:16px Inter}
 .post{cursor:pointer}
-.post .meta{font-size:13px;color:#8d7aa3;margin-top:12px}
+.post .meta{font-size:13px;color:#8b84b8;margin-top:12px}
+
+/* team gradient: near-black at top, violet glow rising from the bottom-left */
+.hero{position:relative}
+.hero::before,footer::before{content:"";position:absolute;inset:0 calc(50% - 50vw) -180px;z-index:-1;pointer-events:none;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent);
+ background:linear-gradient(#ffffff05 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,#ffffff05 1px,transparent 1px) 0 0/28px 28px,
+ radial-gradient(130% 70% at 0% 82%,#7765e3 0%,#563eb4 20%,#362579 34%,#1d1342 52%,#0a0818 76%,#06040d 100%)}
+footer{position:relative;overflow:hidden;border-top-color:#251b52}
+footer::before{inset:0;-webkit-mask-image:none;mask-image:none;background:radial-gradient(90% 160% at 0% 100%,#5e45c2 0%,#2a1d66 35%,#0a0818 75%,#06040d 100%)}
+footer{color:#c9c2f0}
+.hero .tag{color:#c9c2f0}
+.stats small{color:#c9c2f0}
 /* edit mode */
 .tools{display:none;position:absolute;top:8px;right:8px;gap:4px;z-index:2}
 .editing .tools{display:flex}
 .tools button{min-width:36px;min-height:36px;border-radius:8px;border:1px solid var(--line);background:#000c;color:var(--ink);font:600 13px Inter;cursor:pointer;padding:0 8px}
 .tools button:hover{border-color:var(--hot);color:var(--hot)}
 .tools button.del:hover{border-color:#ff5c8a;color:#ff5c8a}
-.editing .card{outline:1px dashed #c04bff55;outline-offset:3px}
+.editing .card{outline:1px dashed #8f7cff55;outline-offset:3px}
 .editing .stats .card{padding-top:44px;min-width:200px}
 .stats .tools{left:0;right:auto;top:0}
 .add{display:none;min-height:120px;border:2px dashed var(--pur2);border-radius:16px;background:none;color:var(--pur);font:600 16px Inter;cursor:pointer}
@@ -109,14 +120,14 @@ nav .links a:hover{background:#2ef2ff12}
 .stats .add{min-height:60px;padding:0 16px}
 .edit-only{display:none}
 .editing .edit-only{display:inline-flex}
-#ownerBar{display:none;position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;width:min(1100px,calc(100% - 24px));background:#0c0612f2;border:1px solid var(--pur);border-radius:16px;box-shadow:0 0 40px #c04bff55;padding:12px 16px;gap:10px 16px;align-items:center;flex-wrap:wrap}
+#ownerBar{display:none;position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;width:min(1100px,calc(100% - 24px));background:#0c0a1ef2;border:1px solid var(--pur);border-radius:16px;box-shadow:0 0 40px #8f7cff55;padding:12px 16px;gap:10px 16px;align-items:center;flex-wrap:wrap}
 .owner #ownerBar{display:flex}
 #ownerBar .seg{display:flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 #ownerBar .seg button{min-height:40px;padding:6px 14px;border:0;background:none;color:var(--dim);font:600 14px Inter;cursor:pointer}
-#ownerBar .seg button[aria-pressed=true]{background:var(--pur);color:#0b0010}
+#ownerBar .seg button[aria-pressed=true]{background:var(--pur);color:#0a0720}
 #status{flex:1 1 200px;font-size:14px;color:var(--dim)}
 #status b{color:var(--hot)}
-dialog{background:var(--panel);color:var(--ink);border:1px solid var(--pur);border-radius:18px;max-width:760px;width:calc(100% - 32px);padding:clamp(20px,4vw,40px);box-shadow:0 0 60px #c04bff55}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--pur);border-radius:18px;max-width:760px;width:calc(100% - 32px);padding:clamp(20px,4vw,40px);box-shadow:0 0 60px #8f7cff55}
 dialog::backdrop{background:#000c}
 dialog h2{font-size:clamp(28px,4vw,40px)}
 dialog>h2,.rbody h2{padding-right:84px}
@@ -127,12 +138,12 @@ form.ed label{font-weight:600;font-size:14px;color:var(--dim)}
 form.ed input,form.ed textarea,form.ed select{width:100%;min-height:44px;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#000;color:var(--ink);font:16px Inter}
 form.ed textarea{min-height:140px}
 .imgfield{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:14px;border:1px dashed var(--pur2);border-radius:12px}
-.imgfield .prev{width:120px;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#000;display:grid;place-items:center;color:#8d7aa3;font-size:13px;text-align:center}
+.imgfield .prev{width:120px;aspect-ratio:1;border-radius:10px;overflow:hidden;background:#000;display:grid;place-items:center;color:#8b84b8;font-size:13px;text-align:center}
 .imgfield .prev img,.imgfield .prev video{width:100%;height:100%;object-fit:cover}
 .formbtns{display:flex;gap:10px;justify-content:flex-end;margin-top:8px}
 footer{border-top:1px solid var(--line);padding:40px max(5vw,16px);color:var(--dim);font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
-#glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#c04bff22,transparent 65%);transform:translate(-50%,-50%);z-index:0;left:-400px;top:-400px}
+#glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#8f7cff22,transparent 65%);transform:translate(-50%,-50%);z-index:0;left:-400px;top:-400px}
 main,nav,footer{position:relative;z-index:1}
 @media(max-width:860px){.hero{grid-template-columns:1fr;min-height:0;gap:20px}.fig{width:min(100%,440px);margin:0 auto}}
 @media(max-width:600px){
@@ -159,7 +170,7 @@ main,nav,footer{position:relative;z-index:1}
 <div id="glow"></div>
 <nav aria-label="Main">
   <div class="wrap">
-    <a class="logo" href="#top"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M5 4h6v12a3 3 0 0 0 6 0V4h6v12a9 9 0 0 1-18 0z" fill="#c04bff"/><rect x="5" y="4" width="6" height="4" fill="#2ef2ff"/><rect x="17" y="4" width="6" height="4" fill="#2ef2ff"/></svg>Neodymium <b>Zenith</b></a>
+    <a class="logo" href="#top"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><path d="M5 4h6v12a3 3 0 0 0 6 0V4h6v12a9 9 0 0 1-18 0z" fill="#8f7cff"/><rect x="5" y="4" width="6" height="4" fill="#2ef2ff"/><rect x="17" y="4" width="6" height="4" fill="#2ef2ff"/></svg>Neodymium <b>Zenith</b></a>
     <div class="links"><a href="#team">Team</a><a href="#outreach">Outreach</a><a href="#design">Design</a><a href="#media">Media</a><a href="#blog">Build guides</a></div>
   </div>
 </nav>
@@ -179,8 +190,8 @@ main,nav,footer{position:relative;z-index:1}
   <div class="fig" id="heroFig">
     <svg viewBox="0 0 500 500" aria-hidden="true">
       <defs>
-        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1040"/><stop offset="1" stop-color="#12061c"/></linearGradient>
-        <radialGradient id="halo"><stop offset="0" stop-color="#c04bff" stop-opacity=".45"/><stop offset="1" stop-color="#c04bff" stop-opacity="0"/></radialGradient>
+        <linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a1f63"/><stop offset="1" stop-color="#100c2a"/></linearGradient>
+        <radialGradient id="halo"><stop offset="0" stop-color="#8f7cff" stop-opacity=".45"/><stop offset="1" stop-color="#8f7cff" stop-opacity="0"/></radialGradient>
       </defs>
       <circle cx="250" cy="250" r="230" fill="url(#halo)"/>
       <g class="field">
@@ -192,18 +203,18 @@ main,nav,footer{position:relative;z-index:1}
       </g>
       <g id="drawnBot">
         <ellipse cx="250" cy="392" rx="150" ry="16" fill="#000" opacity=".7"/>
-        <rect x="130" y="250" width="240" height="120" rx="14" fill="url(#body)" stroke="#c04bff" stroke-width="3"/>
-        <rect x="130" y="250" width="240" height="8" rx="4" fill="#e7b6ff" opacity=".5"/>
-        <rect x="220" y="120" width="22" height="135" rx="4" fill="#1a0a28" stroke="#c04bff" stroke-width="2.5"/>
-        <rect x="258" y="140" width="22" height="115" rx="4" fill="#1a0a28" stroke="#c04bff" stroke-width="2.5"/>
-        <path d="M231 125 L 330 92 L 340 112 L 241 145 Z" fill="#24103a" stroke="#2ef2ff" stroke-width="2.5"/>
+        <rect x="130" y="250" width="240" height="120" rx="14" fill="url(#body)" stroke="#8f7cff" stroke-width="3"/>
+        <rect x="130" y="250" width="240" height="8" rx="4" fill="#c9c0ff" opacity=".5"/>
+        <rect x="220" y="120" width="22" height="135" rx="4" fill="#140f33" stroke="#8f7cff" stroke-width="2.5"/>
+        <rect x="258" y="140" width="22" height="115" rx="4" fill="#140f33" stroke="#8f7cff" stroke-width="2.5"/>
+        <path d="M231 125 L 330 92 L 340 112 L 241 145 Z" fill="#1d1548" stroke="#2ef2ff" stroke-width="2.5"/>
         <path d="M330 86 l28 -6 l6 22 l-10 4 l-4 -12 l-16 4 z M336 112 l28 6 l-4 20 l-10 -2 l2 -10 l-18 -4z" fill="#2ef2ff"/>
-        <g fill="#0a0410" stroke="#c04bff" stroke-width="3"><circle cx="170" cy="372" r="30"/><circle cx="330" cy="372" r="30"/></g>
-        <g fill="#c04bff"><circle cx="170" cy="372" r="8"/><circle cx="330" cy="372" r="8"/></g>
-        <rect x="152" y="280" width="90" height="56" rx="8" fill="#0a0410" stroke="#3a1d55"/>
+        <g fill="#08061a" stroke="#8f7cff" stroke-width="3"><circle cx="170" cy="372" r="30"/><circle cx="330" cy="372" r="30"/></g>
+        <g fill="#8f7cff"><circle cx="170" cy="372" r="8"/><circle cx="330" cy="372" r="8"/></g>
+        <rect x="152" y="280" width="90" height="56" rx="8" fill="#08061a" stroke="#33287a"/>
         <circle cx="175" cy="308" r="10" fill="#2ef2ff"/><circle cx="210" cy="308" r="10" fill="#b6ff3b"/>
-        <text x="300" y="320" text-anchor="middle" font-family="Chakra Petch" font-weight="700" font-size="34" fill="#c04bff">Nd</text>
-        <text x="300" y="342" text-anchor="middle" font-family="Inter" font-size="11" fill="#b7a3cc">60</text>
+        <text x="300" y="320" text-anchor="middle" font-family="Chakra Petch" font-weight="700" font-size="34" fill="#8f7cff">Nd</text>
+        <text x="300" y="342" text-anchor="middle" font-family="Inter" font-size="11" fill="#aaa3d6">60</text>
       </g>
     </svg>
     <div id="heroPhoto"></div>
@@ -360,8 +371,8 @@ let draft=norm(clone(DEFAULT)),dir=null,dirty=false;
 let editing=false,owner=false;
 let history=[],filter='all';
 
-const cadSvg=c=>`<svg viewBox="0 0 160 100"><g stroke="#2a1438" stroke-width=".6">${[0,1,2,3,4,5,6,7].map(i=>`<line x1="0" y1="${i*14}" x2="160" y2="${i*14}"/>`).join('')}</g><g fill="none" stroke="${c}" stroke-width="1.4"><path d="M40 60 L80 40 L120 60 L80 80 Z"/><path d="M40 60 V72 L80 92 L120 72 V60"/><path d="M80 80 V92"/><path d="M70 45 V15 L80 10 L90 15 V45"/><path d="M90 15 L100 20 V50"/></g></svg>`;
-const vidSvg=`<svg viewBox="0 0 160 100"><rect width="160" height="100" fill="#12061c"/><circle cx="80" cy="50" r="20" fill="#c04bff"/><path d="M74 40 L92 50 L74 60 Z" fill="#000"/></svg>`;
+const cadSvg=c=>`<svg viewBox="0 0 160 100"><g stroke="#251b52" stroke-width=".6">${[0,1,2,3,4,5,6,7].map(i=>`<line x1="0" y1="${i*14}" x2="160" y2="${i*14}"/>`).join('')}</g><g fill="none" stroke="${c}" stroke-width="1.4"><path d="M40 60 L80 40 L120 60 L80 80 Z"/><path d="M40 60 V72 L80 92 L120 72 V60"/><path d="M80 80 V92"/><path d="M70 45 V15 L80 10 L90 15 V45"/><path d="M90 15 L100 20 V50"/></g></svg>`;
+const vidSvg=`<svg viewBox="0 0 160 100"><rect width="160" height="100" fill="#100c2a"/><circle cx="80" cy="50" r="20" fill="#8f7cff"/><path d="M74 40 L92 50 L74 60 Z" fill="#000"/></svg>`;
 const linkOk=u=>/^https:\/\//i.test(String(u||''));
 
 const CARD={
@@ -370,7 +381,7 @@ const CARD={
  impact:it=>`<b>${esc(it.n)}</b>${esc(it.l)}`,
  events:it=>`<time>${esc(it.date)}</time><div><h3 style="font-size:19px">${esc(it.title)}</h3><p>${rich(it.desc)}</p></div>${it.img?`<div class="evimg">${media(it.img,it.imgType,it.title)}</div>`:'<span></span>'}`,
  principles:it=>`${it.img?`<div class="thumb">${media(it.img,it.imgType,it.title)}</div>`:''}<h3>${esc(it.title)}</h3><p>${rich(it.text)}</p>`,
- media:it=>`<div class="thumb">${it.img?media(it.img,it.imgType,it.title):it.type==='Video'?vidSvg:cadSvg('#c04bff')}</div><span class="chip">${it.type==='Video'?'Video':'CAD design'}</span><h3>${esc(it.title)}</h3><p>${rich(it.desc)}</p>${linkOk(it.url)?`<a class="btn sm hl" href="${esc(it.url)}" target="_blank" rel="noopener">Open ${it.type==='Video'?'video':'CAD model'}</a>`:''}`,
+ media:it=>`<div class="thumb">${it.img?media(it.img,it.imgType,it.title):it.type==='Video'?vidSvg:cadSvg('#8f7cff')}</div><span class="chip">${it.type==='Video'?'Video':'CAD design'}</span><h3>${esc(it.title)}</h3><p>${rich(it.desc)}</p>${linkOk(it.url)?`<a class="btn sm hl" href="${esc(it.url)}" target="_blank" rel="noopener">Open ${it.type==='Video'?'video':'CAD model'}</a>`:''}`,
  posts:it=>`<span class="chip">${esc(it.tag||'Guide')}</span><h3>${esc(it.title)}</h3><p>${esc(plain(String(it.body||'').split('\n')[0]).slice(0,140))}…</p><div class="meta">${esc(it.author)} · ${esc(it.date)}</div>`
 };
 CARD.mentors=CARD.members;CARD.steps=CARD.principles;
