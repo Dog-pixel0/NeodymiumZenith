@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Neodymium Zenith FTC</title>
+<title>Neodymium Zenith</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -26,6 +26,8 @@ a{color:var(--pur)}
 .band{padding:clamp(40px,6vw,88px) max(5vw,16px);border-top:1px solid var(--line)}
 .wrap{max-width:1240px;margin:0 auto}
 .lede{color:var(--dim);font-size:17px}
+.card p a,.rbody a,.tag a,.ev a{color:var(--hot);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.card p a:hover,.rbody a:hover,.tag a:hover{color:#fff;text-shadow:0 0 10px var(--hot)}
 nav{position:sticky;top:0;z-index:20;background:#000d;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;gap:8px 18px;flex-wrap:wrap;padding:10px max(5vw,16px)}
 .logo{font:700 20px "Chakra Petch",sans-serif;color:var(--ink);text-decoration:none;margin-right:auto;display:flex;align-items:center;gap:10px;min-height:44px}
@@ -117,6 +119,7 @@ nav .links a:hover{background:#2ef2ff12}
 dialog{background:var(--panel);color:var(--ink);border:1px solid var(--pur);border-radius:18px;max-width:760px;width:calc(100% - 32px);padding:clamp(20px,4vw,40px);box-shadow:0 0 60px #c04bff55}
 dialog::backdrop{background:#000c}
 dialog h2{font-size:clamp(28px,4vw,40px)}
+dialog>h2,.rbody h2{padding-right:84px}
 .close{float:right}
 .rbody p{color:var(--dim);white-space:pre-line}
 form.ed{display:grid;gap:10px;clear:both}
@@ -131,7 +134,23 @@ footer{border-top:1px solid var(--line);padding:40px max(5vw,16px);color:var(--d
 footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
 #glow{position:fixed;width:340px;height:340px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#c04bff22,transparent 65%);transform:translate(-50%,-50%);z-index:0;left:-400px;top:-400px}
 main,nav,footer{position:relative;z-index:1}
-@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:0}.fig{max-height:440px;width:100%;order:-1}}
+@media(max-width:860px){.hero{grid-template-columns:1fr;min-height:0;gap:20px}.fig{width:min(100%,440px);margin:0 auto}}
+@media(max-width:600px){
+ nav .wrap{flex-wrap:nowrap;gap:8px;padding:6px 12px}
+ .logo{font-size:17px;flex:none;margin-right:0}
+ nav .links{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
+ nav .links::-webkit-scrollbar{display:none}
+ nav .links a{flex:none;padding:10px 8px;font-size:14px}
+ .hero{padding-top:24px}.hero h1{font-size:clamp(40px,13vw,56px)}.tag{font-size:16px}
+ .fig{width:min(100%,320px)}
+ .impact{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.impact .card{padding:16px}
+ .btns .btn{flex:1 1 100%}
+ body.owner{padding-bottom:210px}
+ #ownerBar{bottom:8px;padding:10px;gap:8px}
+ #status{flex-basis:100%;font-size:13px;order:-1}
+ #ownerBar .btn.sm{flex:1 1 auto;min-height:40px;font-size:13px;padding:6px 10px}
+ .tools button{min-width:40px;min-height:40px}
+}
 @media(max-width:600px){.ev{grid-template-columns:1fr;gap:6px}.ev .evimg{width:100%}nav .links a{padding:10px 8px;font-size:14px}}
 @media(hover:none){#glow{display:none}}
 </style>
@@ -266,6 +285,12 @@ main,nav,footer{position:relative;z-index:1}
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=id=>document.getElementById(id);
 const clone=o=>JSON.parse(JSON.stringify(o));
+/* links: [text](https://...) or a bare https:// address */
+const rich=t=>{const keep=[];let h=esc(t);
+ h=h.replace(/\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/g,(m,a,u)=>{keep.push(`<a href="${u}" target="_blank" rel="noopener">${a}</a>`);return `\u0000${keep.length-1}\u0000`});
+ h=h.replace(/https?:\/\/[^\s<]+[^\s<.,;:!?)]/g,u=>`<a href="${u}" target="_blank" rel="noopener">${u.replace(/^https?:\/\//,'')}</a>`);
+ return h.replace(/\u0000(\d+)\u0000/g,(m,i)=>keep[i]);};
+const plain=t=>String(t||'').replace(/\[([^\]\n]+)\]\((https?:\/\/[^\s)]+)\)/g,'$1');
 const ini=n=>String(n||'?').trim().split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
 const blobs={};
 const safe=p=>/^(images\/[\w.\-]+|https:\/\/\S+)$/.test(String(p||''));
@@ -341,12 +366,12 @@ const linkOk=u=>/^https:\/\//i.test(String(u||''));
 
 const CARD={
  stats:it=>`${esc(it.n)}<small>${esc(it.l)}</small>`,
- members:it=>`${it.img?`<div class="face">${media(it.img,it.imgType,it.name)}</div>`:`<div class="avatar">${esc(ini(it.name))}</div>`}<h3>${esc(it.name)}</h3><div class="role">${esc(it.role)}</div><p>${esc(it.bio)}</p>`,
+ members:it=>`${it.img?`<div class="face">${media(it.img,it.imgType,it.name)}</div>`:`<div class="avatar">${esc(ini(it.name))}</div>`}<h3>${esc(it.name)}</h3><div class="role">${esc(it.role)}</div><p>${rich(it.bio)}</p>`,
  impact:it=>`<b>${esc(it.n)}</b>${esc(it.l)}`,
- events:it=>`<time>${esc(it.date)}</time><div><h3 style="font-size:19px">${esc(it.title)}</h3><p>${esc(it.desc)}</p></div>${it.img?`<div class="evimg">${media(it.img,it.imgType,it.title)}</div>`:'<span></span>'}`,
- principles:it=>`${it.img?`<div class="thumb">${media(it.img,it.imgType,it.title)}</div>`:''}<h3>${esc(it.title)}</h3><p>${esc(it.text)}</p>`,
- media:it=>`<div class="thumb">${it.img?media(it.img,it.imgType,it.title):it.type==='Video'?vidSvg:cadSvg('#c04bff')}</div><span class="chip">${it.type==='Video'?'Video':'CAD design'}</span><h3>${esc(it.title)}</h3><p>${esc(it.desc)}</p>${linkOk(it.url)?`<a class="btn sm hl" href="${esc(it.url)}" target="_blank" rel="noopener">Open ${it.type==='Video'?'video':'CAD model'}</a>`:''}`,
- posts:it=>`<span class="chip">${esc(it.tag||'Guide')}</span><h3>${esc(it.title)}</h3><p>${esc(String(it.body||'').split('\n')[0].slice(0,140))}…</p><div class="meta">${esc(it.author)} · ${esc(it.date)}</div>`
+ events:it=>`<time>${esc(it.date)}</time><div><h3 style="font-size:19px">${esc(it.title)}</h3><p>${rich(it.desc)}</p></div>${it.img?`<div class="evimg">${media(it.img,it.imgType,it.title)}</div>`:'<span></span>'}`,
+ principles:it=>`${it.img?`<div class="thumb">${media(it.img,it.imgType,it.title)}</div>`:''}<h3>${esc(it.title)}</h3><p>${rich(it.text)}</p>`,
+ media:it=>`<div class="thumb">${it.img?media(it.img,it.imgType,it.title):it.type==='Video'?vidSvg:cadSvg('#c04bff')}</div><span class="chip">${it.type==='Video'?'Video':'CAD design'}</span><h3>${esc(it.title)}</h3><p>${rich(it.desc)}</p>${linkOk(it.url)?`<a class="btn sm hl" href="${esc(it.url)}" target="_blank" rel="noopener">Open ${it.type==='Video'?'video':'CAD model'}</a>`:''}`,
+ posts:it=>`<span class="chip">${esc(it.tag||'Guide')}</span><h3>${esc(it.title)}</h3><p>${esc(plain(String(it.body||'').split('\n')[0]).slice(0,140))}…</p><div class="meta">${esc(it.author)} · ${esc(it.date)}</div>`
 };
 CARD.mentors=CARD.members;CARD.steps=CARD.principles;
 const CLS={events:'ev',posts:'post'};
@@ -357,7 +382,7 @@ const tools=`<div class="tools"><button data-act="left" aria-label="Move earlier
 function render(){
  const c=view();
  document.body.classList.toggle('editing',editing);
- $('tagline').textContent=`FIRST Tech Challenge Team #${c.teamNo||'—'} · ${c.tagline||''}`;
+ $('tagline').innerHTML=`FIRST Tech Challenge Team #${esc(c.teamNo||'—')} · ${rich(c.tagline||'')}`;
  const hp=$('heroPhoto');
  $('drawnBot').style.display=c.heroImg?'none':'';
  hp.innerHTML=c.heroImg?`<div class="photo-wrap">${media(c.heroImg,c.heroType,"This season's robot")}</div>`
@@ -417,7 +442,7 @@ document.addEventListener('click',e=>{
  const art=b.closest('[data-k]');const k=b.dataset.k||art?.dataset.k;const i=art?+art.dataset.i:-1;
  const act=b.dataset.act;
  if(act==='read'){const p=view().posts[i];if(!p)return;
-  $('readerBody').innerHTML=`<span class="chip">${esc(p.tag||'Guide')}</span><h2>${esc(p.title)}</h2><p class="note">${esc(p.author)} · ${esc(p.date)}</p>`+String(p.body||'').split(/\n\s*\n/).map(x=>`<p>${esc(x)}</p>`).join('');
+  $('readerBody').innerHTML=`<span class="chip">${esc(p.tag||'Guide')}</span><h2>${esc(p.title)}</h2><p class="note">${esc(p.author)} · ${esc(p.date)}</p>`+String(p.body||'').split(/\n\s*\n/).map(x=>`<p>${rich(x)}</p>`).join('');
   $('reader').showModal();return}
  if(!editing)return;
  e.stopPropagation();
@@ -442,7 +467,7 @@ function openEditor(k,i){
   if(t&&t.startsWith('sel:'))return `<label for="${id}">${esc(l)}</label><select id="${id}" name="${n}">${t.slice(4).split('|').map(o=>`<option${o===v?' selected':''}>${o}</option>`).join('')}</select>`;
   return `<label for="${id}">${esc(l)}</label><input id="${id}" name="${n}" value="${esc(v)}"${x===0?' required':''}>`;
  }).join('')+(imgF?`<label>${esc(sc.imgLabel)}</label><div class="imgfield"><div class="prev" id="prev"></div><label class="btn sm hl">Choose file<input type="file" id="imgIn" accept="image/*${sc.vid?',video/*':''}" hidden></label><button type="button" class="btn sm hl" id="imgRm">Remove</button><span id="upst" class="note" style="margin:0"></span></div>`:'')
-  +`<div class="formbtns"><button type="button" class="btn hl" data-close>Cancel</button><button class="btn solid hl" id="edSave">Save</button></div>`;
+  +(sc.fields.some(f=>f[2]==='area')?`<p class="note" style="margin:0">To add a link, write <code>[link text](https://example.com)</code> or paste a full https:// address.</p>`:'')+`<div class="formbtns"><button type="button" class="btn hl" data-close>Cancel</button><button class="btn solid hl" id="edSave">Save</button></div>`;
  const showPrev=()=>{const p=$('prev');if(p)p.innerHTML=img?media(img,imgType,'Preview'):'No image'};
  showPrev();
  if(imgF){
