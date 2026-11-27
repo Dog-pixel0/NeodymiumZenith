@@ -1,15 +1,15 @@
 {
-  "teamNo": "00000",
+  "teamNo": "25610",
   "tagline": "Strong attraction to good engineering. We design, build and program competition robots — and help other students do the same.",
-  "heroImg": "images/img-2780-2-mwy13lus.jpg",
+  "heroImg": "images/img-2780-2-mwycx2f9.jpg",
   "heroType": "image/jpeg",
   "stats": [
     {
-      "n": "4",
+      "n": "2",
       "l": "seasons competing"
     },
     {
-      "n": "12",
+      "n": "4",
       "l": "student members"
     },
     {
@@ -27,22 +27,22 @@
     },
     {
       "name": "Ethan",
-      "role": "Programming lead",
-      "bio": "Wrote our autonomous pathing and vision pipeline.",
+      "role": "Design Lead",
+      "bio": "Focuses on modular designs",
       "img": null,
       "imgType": null
     },
     {
       "name": "Abhiraj",
-      "role": "CAD lead",
-      "bio": "Models every part in Onshape before a single cut is made.",
+      "role": "Programming Lead",
+      "bio": "Wrote our PID pipelines",
       "img": null,
       "imgType": null
     },
     {
       "name": "Carson",
-      "role": "Drive team",
-      "bio": "Primary driver with 200+ hours of practice this season.",
+      "role": "Outreach Lead",
+      "bio": "Facilitates our outreaches",
       "img": null,
       "imgType": null
     }
@@ -51,34 +51,37 @@
     {
       "name": "Subodh",
       "role": "Head Coach",
-      "bio": "Mechanical engineer; coaches design reviews and failure analysis.",
+      "bio": "Hardware Engineer; coaches design reviews and failure analysis.",
+      "img": null,
+      "imgType": null
+    },
+    {
+      "name": "Janhavi",
+      "role": "Software mentor",
+      "bio": "Mentors on how to build software; helps with code reviews and control theory.",
       "img": null,
       "imgType": null
     },
     {
       "name": "Sridevi",
-      "role": "Lead Coach",
-      "bio": "Software engineer; helps with code reviews and control theory.",
+      "role": "Lead coach",
+      "bio": "Handles logistics, travel and keeping us all on track.",
       "img": null,
       "imgType": null
     }
   ],
   "impact": [
     {
-      "n": "1,200+",
-      "l": "students reached at demos"
+      "n": "3,000+",
+      "l": "students reached through demos and talk series"
     },
     {
       "n": "6",
       "l": "FLL teams mentored"
     },
     {
-      "n": "340",
+      "n": "120",
       "l": "volunteer hours this season"
-    },
-    {
-      "n": "2",
-      "l": "new FTC teams started"
     }
   ],
   "events": [
@@ -167,21 +170,21 @@
   "posts": [
     {
       "title": "Choosing your first drivetrain",
-      "author": "Ava Patel",
+      "author": "Reyansh",
       "tag": "Mechanical",
       "date": "Oct 2026",
       "body": "Mecanum, tank or swerve? For most rookie teams, a mecanum drivetrain built from a kit chassis is the best balance of speed, agility and simplicity.\n\nIf the game rewards lining up sideways with targets, mecanum wins. If you need to push, tank drive with traction wheels is stronger.\n\nWhatever you pick: keep the frame square, belt tension consistent and the battery low and centered."
     },
     {
       "title": "Odometry pods in a weekend",
-      "author": "Marcus Lee",
+      "author": "Reyansh",
       "tag": "Programming",
       "date": "Nov 2026",
       "body": "Dead-wheel odometry tells your autonomous exactly where the robot is.\n\n1. Mount two parallel pods and one perpendicular pod, spring-loaded onto the mat.\n2. Convert encoder ticks to inches using wheel diameter and ticks per revolution.\n3. Use a library like Road Runner or Pedro Pathing to turn readings into a pose and follow paths.\n\nTune by pushing the robot a measured distance and comparing."
     },
     {
       "title": "Wiring that never fails at competition",
-      "author": "Jonah Brooks",
+      "author": "Reyansh",
       "tag": "Electrical",
       "date": "Nov 2026",
       "body": "Most robot failures at events are electrical.\n\nUse strain relief on every connector, label both ends of every cable and keep motor and sensor wires apart.\n\nBefore each match: battery voltage, a tug on each connector and a quick motor test."
