@@ -49,16 +49,16 @@
   ],
   "mentors": [
     {
-      "name": "Subodh",
-      "role": "Head Coach",
-      "bio": "Hardware Engineer; coaches design reviews and failure analysis.",
+      "name": "Janhavi",
+      "role": "Software mentor",
+      "bio": "Mentors on how to build software; helps with code reviews and control theory.",
       "img": null,
       "imgType": null
     },
     {
-      "name": "Janhavi",
-      "role": "Software mentor",
-      "bio": "Mentors on how to build software; helps with code reviews and control theory.",
+      "name": "Subodh",
+      "role": "Head Coach",
+      "bio": "Hardware Engineer; coaches design reviews and failure analysis.",
       "img": null,
       "imgType": null
     },
@@ -171,8 +171,8 @@
       "title": "Our first Shooter Test - BioBuzz",
       "desc": "",
       "url": "https://youtube.com/shorts/RBmWty8EUWU?si=ChjLpybOh1e_OKdH",
-      "img": null,
-      "imgType": null
+      "img": "images/whatsapp-image-2026-11-27-at-10-15-02-mwzb0oo7.jpeg",
+      "imgType": "image/jpeg"
     }
   ],
   "posts": [
