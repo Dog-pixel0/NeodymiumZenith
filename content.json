@@ -20,22 +20,22 @@
   "members": [
     {
       "name": "Reyansh",
-      "role": "Captain · Co-Founder · Build lead",
-      "bio": "Runs the build schedule and keeps the pit organized.",
+      "role": "Captain · Co-Founder · Design lead",
+      "bio": "Plans season's overall design and runs the build schedule and keeps the pit organized.",
       "img": null,
       "imgType": null
     },
     {
       "name": "Ethan",
-      "role": "Co-Captain  · Co-Founder  · Design Lead",
-      "bio": "Focuses on modular designs",
+      "role": "Co-Captain  · Co-Founder  · Build Lead",
+      "bio": "Focuses on modular builds",
       "img": null,
       "imgType": null
     },
     {
       "name": "Abhiraj",
       "role": "Software Programming",
-      "bio": "I write Software to kae the robot work",
+      "bio": "I write Software to make the robot work",
       "img": null,
       "imgType": null
     },
