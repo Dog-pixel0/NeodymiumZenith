@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel><title>Neodymium Zenith — Lab notes</title><link>https://neodymiumzenith.org/</link><description>Build logs and robotics notes from FTC Team #25610</description>
+<item><title>Our first shooter test — BioBuzz. Watch it fire, and follow along as we tune …</title><link>https://neodymiumzenith.org/#note-2026-11-27-shooter</link><guid isPermaLink="false">2026-11-27-shooter</guid><pubDate>Fri, 27 Nov 2026 12:00:00 GMT</pubDate><description>Our first shooter test — BioBuzz. Watch it fire, and follow along as we tune it this season.</description></item>
+<item><title>Soft robots don&#39;t have hard joints or gears. They&#39;re made of rubbery material…</title><link>https://neodymiumzenith.org/#note-2026-11-26-soft</link><guid isPermaLink="false">2026-11-26-soft</guid><pubDate>Thu, 26 Nov 2026 12:00:00 GMT</pubDate><description>Soft robots don&#39;t have hard joints or gears. They&#39;re made of rubbery materials like silicone and move by pumping in air, so they bend, squeeze and grip like an octopus arm.
+
+That makes them safe around people and gentle enough to pick a strawberry.</description></item>
+<item><title>We built a soft robot gripper in a weekend: silicone fingers that curl when y…</title><link>https://neodymiumzenith.org/#note-2026-11-25-grip</link><guid isPermaLink="false">2026-11-25-grip</guid><pubDate>Wed, 25 Nov 2026 12:00:00 GMT</pubDate><description>We built a soft robot gripper in a weekend: silicone fingers that curl when you pump in air. Gentle enough to pick up an egg.
+
+Sat: 3D print molds, cast Ecoflex
+Sun: seal, leak-test, add an Arduino + mini pump</description></item>
+</channel></rss>
