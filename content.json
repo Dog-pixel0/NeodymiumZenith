@@ -20,22 +20,22 @@
   "members": [
     {
       "name": "Reyansh",
-      "role": "Captain · Co-Founder · Design lead",
-      "bio": "Plans season's overall design and runs the build schedule and keeps the pit organized.",
+      "role": "Captain · Co-Founder · Build lead",
+      "bio": "Runs the build schedule and keeps the pit organized.",
       "img": null,
       "imgType": null
     },
     {
       "name": "Ethan",
-      "role": "Co-Captain  · Co-Founder  · Build Lead",
-      "bio": "Focuses on modular builds",
+      "role": "Co-Captain  · Co-Founder  · Design Lead",
+      "bio": "Focuses on modular designs",
       "img": null,
       "imgType": null
     },
     {
       "name": "Abhiraj",
       "role": "Software Programming",
-      "bio": "I write Software to make the robot work",
+      "bio": "I write Software to kae the robot work",
       "img": null,
       "imgType": null
     },
@@ -52,20 +52,6 @@
       "name": "Janhavi",
       "role": "Software mentor",
       "bio": "Mentors on how to build software; helps with code reviews and control theory.",
-      "img": null,
-      "imgType": null
-    },
-    {
-      "name": "Subodh",
-      "role": "Head Coach",
-      "bio": "Hardware Engineer; coaches design reviews and failure analysis.",
-      "img": null,
-      "imgType": null
-    },
-    {
-      "name": "Sridevi",
-      "role": "Lead coach",
-      "bio": "Handles logistics, travel and keeping us all on track.",
       "img": null,
       "imgType": null
     }
@@ -209,8 +195,8 @@
   "notes": [
     {
       "id": "2026-11-25-grip",
-      "date": "2026-10-25",
-      "author": "Reyansh",
+      "date": "2026-11-25",
+      "author": "Neodymium Zenith",
       "text": "We built a soft robot gripper in a weekend: silicone fingers that curl when you pump in air. Gentle enough to pick up an egg.\n\nSat: 3D print molds, cast Ecoflex\nSun: seal, leak-test, add an Arduino + mini pump",
       "tags": [
         "Soft robotics",
@@ -224,7 +210,7 @@
     {
       "id": "2026-11-26-soft",
       "date": "2026-11-26",
-      "author": "Reyansh",
+      "author": "Neodymium Zenith",
       "text": "Soft robots don't have hard joints or gears. They're made of rubbery materials like silicone and move by pumping in air, so they bend, squeeze and grip like an octopus arm.\n\nThat makes them safe around people and gentle enough to pick a strawberry.",
       "tags": [
         "Soft robotics",
@@ -248,6 +234,22 @@
       "link": "",
       "linkLabel": "",
       "media": []
+    }
+  ],
+  "coaches": [
+    {
+      "name": "Subodh",
+      "role": "Head Coach",
+      "bio": "Hardware Engineer; coaches design reviews and failure analysis.",
+      "img": null,
+      "imgType": null
+    },
+    {
+      "name": "Sridevi",
+      "role": "Lead coach",
+      "bio": "Handles logistics, travel and keeping us all on track.",
+      "img": null,
+      "imgType": null
     }
   ]
 }

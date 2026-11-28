@@ -27,12 +27,13 @@ const ytId=u=>{const m=String(u||'').match(/(?:youtu\.be\/|youtube\.com\/(?:watc
 const today=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`};
 const fmtDate=d=>{const x=new Date(String(d)+'T12:00:00');return isNaN(x)?esc(d):x.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})};
 
-const LISTS=['stats','members','mentors','impact','events','principles','steps','media','posts','notes'];
+const LISTS=['stats','members','mentors','coaches','impact','events','principles','steps','media','posts','notes'];
 const SCHEMA={
  hero:{label:'hero',single:true,fields:[['teamNo','Team number'],['tagline','Tagline','area'],['feedTitle','Feed heading on the home page (leave empty to hide it)'],['siteUrl','Site address (for sharing links and RSS), e.g. https://yourname.github.io/neodymium-zenith/']],img:'heroImg',imgLabel:"This season's robot photo"},
  stats:{label:'stat',fields:[['n','Number'],['l','Label']]},
  members:{label:'team member',fields:[['name','Name'],['role','Role'],['bio','Description','area']],img:'img',imgLabel:'Photo'},
- mentors:{label:'coach or mentor',fields:[['name','Name'],['role','Role'],['bio','Description','area']],img:'img',imgLabel:'Photo'},
+ mentors:{label:'mentor',fields:[['name','Name'],['role','Role'],['bio','Description','area']],img:'img',imgLabel:'Photo'},
+ coaches:{label:'coach',fields:[['name','Name'],['role','Role'],['bio','Description','area']],img:'img',imgLabel:'Photo'},
  impact:{label:'impact number',fields:[['n','Number'],['l','Label']]},
  events:{label:'outreach event',fields:[['date','Date'],['title','Event'],['desc','Description','area']],img:'img',imgLabel:'Photo or short video',vid:true},
  principles:{label:'design principle',fields:[['title','Principle'],['text','Description','area']],img:'img',imgLabel:'Image'},
@@ -78,7 +79,7 @@ const CARD={
   <div class="nf"><span class="ntags">${(n.tags||[]).map(t=>`<button class="chip" data-act="tag" data-tag="${esc(t)}">${esc(t)}</button>`).join('')}</span>
   <span class="nact"><button class="stat love${loved.has(n.id)?' on':''}" data-act="love" aria-pressed="${loved.has(n.id)}" title="${loved.has(n.id)?'You loved this':'Love this post'}">${ICON.heart}<span class="lc"></span></button><span class="stat vw" title="Views">${ICON.eye}<span class="vc"></span></span><button class="iconbtn" data-act="copy" title="Copy for social media" aria-label="Copy for social media">${ICON.share}</button><a class="iconbtn" href="#note-${esc(n.id)}" data-act="perm" title="Link to this post" aria-label="Link to this post">${ICON.link}</a></span></div>`
 };
-CARD.mentors=CARD.members;CARD.steps=CARD.principles;
+CARD.mentors=CARD.members;CARD.coaches=CARD.members;CARD.steps=CARD.principles;
 const CLS={events:'ev',posts:'post',notes:'note'};
 const ELID={media:'media_'};
 const toolsFor=k=>`<div class="tools">${SCHEMA[k].noMove?'':'<button data-act="left" aria-label="Move earlier">←</button><button data-act="right" aria-label="Move later">→</button>'}<button data-act="edit">Edit</button><button class="del" data-act="del">Delete</button></div>`;
@@ -162,7 +163,7 @@ function renderNotes(){
 function renderSide(){
  const el=$('side');if(!el)return;
  const c=draft,g=c.posts[c.posts.length-1],ev=c.events[c.events.length-1];
- el.innerHTML=`<div class="card"><h3>The team</h3><div class="faces">${c.members.map(m=>m.img?`<span>${media(m.img,m.imgType,m.name)}</span>`:`<span>${esc(ini(m.name))}</span>`).join('')}</div><p>${c.members.length} students, ${c.mentors.length} coaches and mentors.</p><a class="btn sm hl" href="team.html${owner?'#edit':''}">Meet the team</a></div>`
+ el.innerHTML=`<div class="card"><h3>The team</h3><div class="faces">${c.members.map(m=>m.img?`<span>${media(m.img,m.imgType,m.name)}</span>`:`<span>${esc(ini(m.name))}</span>`).join('')}</div><p>${c.members.length} students, ${c.mentors.length+c.coaches.length} mentors and coaches.</p><a class="btn sm hl" href="team.html${owner?'#edit':''}">Meet the team</a></div>`
  +(g?`<div class="card"><h3>Latest build guide</h3><a class="big" href="guides.html#guide-${slug(g.title)}">${esc(g.title)}</a><p>${esc(g.author)} · ${esc(g.date)}</p><a class="btn sm hl" href="guides.html${owner?'#edit':''}">All build guides</a></div>`:'')
  +(ev?`<div class="card"><h3>Recent outreach</h3><a class="big" href="outreach.html${owner?'#edit':''}">${esc(ev.title)}</a><p>${esc(ev.date)}</p></div>`:'')
  +`<div class="card"><h3>See the robot</h3><p>CAD models, test clips and match videos.</p><a class="btn sm hl" href="design.html${owner?'#edit':''}">Design &amp; CAD</a></div>`;
