@@ -91,6 +91,9 @@ const store=(k,v)=>{try{if(v===undefined)return JSON.parse(localStorage.getItem(
 const loved=new Set(store('nzLoved'));
 const seen=new Set((()=>{try{return JSON.parse(sessionStorage.getItem('nzSeen')||'[]')}catch(_){return []}})());
 const stats={};
+const memo=k=>{try{return JSON.parse(localStorage.getItem(k)||'{}')||{}}catch(_){return {}}};
+const viewedAt=memo('nzViewedAt'),lovedAt=memo('nzLovedAt');
+const saveMemo=(k,o)=>{try{localStorage.setItem(k,JSON.stringify(o))}catch(_){}};
 const short=n=>n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e4?Math.round(n/1e3)+'K':n>=1e3?(n/1e3).toFixed(1).replace(/\.0$/,'')+'K':String(n);
 async function gcGet(path){
  if(!GC)return null;
@@ -104,7 +107,8 @@ function gcSend(path,title,tries=0){
 }
 function paintStats(id){
  const el=document.getElementById('note-'+id);if(!el)return;const st=stats[id]||{};
- const v=st.v,l=Math.max(st.l??0,loved.has(id)?1:0);
+ const v=st.v==null?null:Math.max(st.v,id in viewedAt?viewedAt[id]+1:0);
+ const l=Math.max(st.l??0,id in lovedAt?lovedAt[id]+1:loved.has(id)?1:0);
  const vw=el.querySelector('.vw');if(vw){vw.hidden=v==null;vw.querySelector('.vc').textContent=v==null?'':short(v);vw.title=v==null?'':`${v.toLocaleString()} view${v===1?'':'s'}`}
  const lc=el.querySelector('.lc');if(lc)lc.textContent=l?short(l):'';
 }
@@ -121,7 +125,7 @@ function watchViews(){
  if(!vio)vio=new IntersectionObserver(es=>es.forEach(e=>{const id=e.target.dataset.nid;if(!id||seen.has(id))return;
   if(e.isIntersecting){vtimers[id]=setTimeout(()=>{if(seen.has(id))return;seen.add(id);try{sessionStorage.setItem('nzSeen',JSON.stringify([...seen]))}catch(_){}
    const n=draft.notes.find(x=>x.id===id);gcSend('/note/'+id,'Note: '+plain(n?.text||'').slice(0,60));
-   if(stats[id]&&stats[id].v!=null&&!owner){stats[id].v++;paintStats(id)}},1000)}
+   if(!owner&&!(id in viewedAt)){viewedAt[id]=stats[id]?.v??0;saveMemo('nzViewedAt',viewedAt)}paintStats(id)},1000)}
   else clearTimeout(vtimers[id])}),{threshold:.5});
  document.querySelectorAll('#notes .note[data-nid]').forEach(el=>{if(!el.dataset.vw){el.dataset.vw=1;vio.observe(el)}});
 }
@@ -254,7 +258,7 @@ document.addEventListener('click',e=>{
   (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(done).catch(()=>{const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(_){}ta.remove()});return}
  if(act==='love'){const id=draft.notes[i]?.id;if(!id)return;
   if(loved.has(id)){b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');return}
-  loved.add(id);store('nzLoved',[...loved]);stats[id]=stats[id]||{v:null,l:0};stats[id].l=(stats[id].l||0)+1;
+  loved.add(id);store('nzLoved',[...loved]);stats[id]=stats[id]||{v:null,l:0};lovedAt[id]=stats[id].l||0;saveMemo('nzLovedAt',lovedAt);
   b.classList.add('on','pop');b.setAttribute('aria-pressed','true');b.title='You loved this';paintStats(id);
   gcSend('/love/'+id,'Love: '+plain(draft.notes[i].text).slice(0,60));return}
  if(act==='perm'){e.preventDefault();const id=b.getAttribute('href').slice(1);if(!owner)history.replaceState(null,'','#'+id);flash(id);return}
