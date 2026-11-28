@@ -97,7 +97,13 @@ const saveMemo=(k,o)=>{try{localStorage.setItem(k,JSON.stringify(o))}catch(_){}}
 const short=n=>n>=1e6?(n/1e6).toFixed(1).replace(/\.0$/,'')+'M':n>=1e4?Math.round(n/1e3)+'K':n>=1e3?(n/1e3).toFixed(1).replace(/\.0$/,'')+'K':String(n);
 async function gcGet(path){
  if(!GC)return null;
- try{const r=await fetch(GC+'/counter/'+encodeURIComponent(path)+'.json');if(r.status===404)return 0;if(!r.ok)return null;const j=await r.json();return parseInt(String(j.count).replace(/\D/g,''),10)||0}catch(_){return null}
+ /* GoatCounter answers 404 (with {"count":"0"}) for a post that has no recorded visits yet, so read the body whatever the status */
+ /* ?start=… asks GoatCounter for a live all-time count; the plain address can serve a copy that is hours old */
+ try{const r=await fetch(GC+'/counter/'+encodeURIComponent(path)+'.json?start=2020-01-01',{cache:'no-cache'});
+  if(r.status===403)return null; /* counter setting switched off */
+  let j=null;try{j=await r.json()}catch(_){}
+  if(j&&j.count!=null)return parseInt(String(j.count).replace(/\D/g,''),10)||0;
+  return r.status===404?0:null}catch(_){return null}
 }
 function gcSend(path,title,tries=0){
  if(owner)return;
